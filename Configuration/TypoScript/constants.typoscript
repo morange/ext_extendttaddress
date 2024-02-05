@@ -1,0 +1,14 @@
+plugin.tx_extextendttaddress_extendttaddress {
+    view {
+        # cat=plugin.tx_extextendttaddress_extendttaddress/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:ext_extendttaddress/Resources/Private/Templates/
+        # cat=plugin.tx_extextendttaddress_extendttaddress/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:ext_extendttaddress/Resources/Private/Partials/
+        # cat=plugin.tx_extextendttaddress_extendttaddress/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:ext_extendttaddress/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_extextendttaddress_extendttaddress//a; type=string; label=Default storage PID
+        storagePid =
+    }
+}

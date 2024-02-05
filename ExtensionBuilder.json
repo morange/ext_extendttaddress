@@ -1,0 +1,120 @@
+{
+    "modules": [
+        {
+            "config": {
+                "position": [
+                    250,
+                    120
+                ]
+            },
+            "name": "New Model Object",
+            "value": {
+                "actionGroup": {
+                    "_default1_list": true,
+                    "_default2_show": true,
+                    "_default3_new_create": false,
+                    "_default4_edit_update": false,
+                    "_default5_delete": false,
+                    "customActions": [
+                        "atoz",
+                        "pulldown"
+                    ]
+                },
+                "name": "ExtendTtAddress",
+                "objectsettings": {
+                    "addDeletedField": true,
+                    "addHiddenField": true,
+                    "addStarttimeEndtimeFields": true,
+                    "aggregateRoot": true,
+                    "categorizable": true,
+                    "description": "",
+                    "mapToTable": "tt_address",
+                    "parentClass": "\\FriendsOfTYPO3\\TtAddress\\Domain\\Model\\Address",
+                    "sorting": true,
+                    "type": "Entity",
+                    "uid": "289619838346"
+                },
+                "propertyGroup": {
+                    "properties": [
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "txBirtday",
+                            "propertyType": "String",
+                            "uid": "831044377989"
+                        },
+                        {
+                            "allowedFileTypes": "",
+                            "maxItems": "1",
+                            "propertyDescription": "",
+                            "propertyIsExcludeField": true,
+                            "propertyIsL10nModeExclude": false,
+                            "propertyIsNullable": true,
+                            "propertyIsRequired": false,
+                            "propertyName": "txDeathday",
+                            "propertyType": "String",
+                            "uid": "1318529202648"
+                        }
+                    ]
+                },
+                "relationGroup": {
+                    "relations": []
+                }
+            }
+        }
+    ],
+    "properties": {
+        "backendModules": [],
+        "description": "Extend TtAddress",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 11.5.0-11.5.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "generateDocumentationTemplate": false,
+            "generateEditorConfig": false,
+            "generateEmptyGitRepository": true,
+            "sourceLanguage": "en,de",
+            "state": "stable",
+            "targetVersion": "11.5.0-11.5.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "ext_extendttaddress",
+        "name": "Extend TtAddress",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "Der Matthes und Frau Hofer",
+                "email": "info@dermatthes-frauhofer.de",
+                "name": "Steffen Matthes",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "",
+                    "noncacheableActions": ""
+                },
+                "description": "Extend TtAddress",
+                "key": "extendttaddress",
+                "name": "Extend TtAddress"
+            }
+        ],
+        "vendorName": "DerMatthesFrauHofer"
+    },
+    "wires": [],
+    "storagePath": "\/var\/www\/html\/packages\/",
+    "log": {
+        "last_modified": "2024-02-05 11:10",
+        "extension_builder_version": "v11.0.11",
+        "be_user": "Steffen Matthes (2)"
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang_db.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
+		<header/>
+		<body>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress" resname="tx_extextendttaddress_domain_model_extendttaddress">
+				<source>Extend Tt Address</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.description" resname="tx_extextendttaddress_domain_model_extendttaddress.description">
+				<source>Extend Tt Address</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday">
+				<source>Birtday</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description">
+				<source>Description Birtday</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday">
+				<source>Deathday</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday.description" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday.description">
+				<source>Description Deathday</source>
+			</trans-unit>
+			<trans-unit id="tt_address.tx_extbase_type.Tx_ExtExtendttaddress_ExtendTtAddress" resname="tt_address.tx_extbase_type.Tx_ExtExtendttaddress_ExtendTtAddress">
+				<source>Extend TtAddress ExtendTtAddress</source>
+			</trans-unit>
+			<trans-unit id="tx_extextendttaddress.tx_extbase_type" resname="tx_extextendttaddress.tx_extbase_type">
+				<source>Record Type</source>
+			</trans-unit>
+			<trans-unit id="tx_ext_extendttaddress_extendttaddress.name" resname="tx_ext_extendttaddress_extendttaddress.name">
+				<source>Extend TtAddress</source>
+			</trans-unit>
+			<trans-unit id="tx_ext_extendttaddress_extendttaddress.description" resname="tx_ext_extendttaddress_extendttaddress.description">
+				<source>Extend TtAddress</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

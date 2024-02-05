@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang_csh_tt_address.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
+		<header/>
+		<body>
+			<trans-unit id="tx_birthday.description" resname="tx_birthday.description">
+				<source>Birtday</source>
+			</trans-unit>
+			<trans-unit id="tx_deathday.description" resname="tx_deathday.description">
+				<source>Deathday</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,21 @@
+
+config.tx_extbase {
+  persistence {
+    classes {
+
+      FriendsOfTYPO3\TtAddress\Domain\Model\Address {
+        subclasses {
+          Tx_ExtExtendttaddress_ExtendTtAddress = DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress
+          
+        }
+      }
+      DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress {
+        mapping {
+          tableName = tt_address
+          recordType = Tx_ExtExtendttaddress_ExtendTtAddress
+        }
+      }
+
+    }
+  }
+}
