@@ -1,5 +1,5 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
 
 This template is responsible for creating a table of domain objects.
 
@@ -13,56 +13,47 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-<f:comment>
-	<f:for each="{pagination.paginator.paginatedItems}" as="extendTtAddresses" iteration="iterator">
-	</f:for>
-</f:comment>
+<f:comment><!--
+    <f:for as="extendTtAddresses" each="{pagination.paginator.paginatedItems}" iteration="iterator">
+    </f:for>
+--></f:comment>
 
 <f:section name="content">
-	<f:comment>
-    <h1>List Listing for ExtendTtAddress</h1>
+    <f:comment><!--
+        <h1>List Listing for ExtendTtAddress</h1>
+        <f:flashMessages/>
+        <table class="tx_extextendttaddress">
+            <f:for as="extendTtAddress" each="{extendTtAddresses}">
+                <tr>
+                    <td>
+                        <f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txBirtday}</f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txDeathday}</f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="edit" arguments="{extendTtAddress : extendTtAddress}">Edit</f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="delete" arguments="{extendTtAddress : extendTtAddress}">Delete</f:link.action>
+                    </td>
+                </tr>
+            </f:for>
+        </table>
+    --></f:comment>
 
-    <f:flashMessages />
+    <div class="row missionarsList">
+        <!--TYPO3SEARCH_begin-->
+        <div class="list large-12 medium-12 small-12 columns">
+            <f:for as="extendTtAddressesItem" each="{pagination.paginator.paginatedItems}" iteration="iterator">
+                <f:render arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" partial="Person/ListItemPerson"/>
+            </f:for>
+        </div>
+        <div class="large-12 medium-12 small-12 columns">
+            <f:render arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}" partial="Pagination"/>
+        </div>
+        <!--TYPO3SEARCH_end-->
+    </div>
 
-    <table class="tx_extextendttaddress">
-        <f:for each="{extendTtAddresses}" as="extendTtAddress">
-            <tr>
-                <td><f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txBirtday}</f:link.action></td>
-                <td><f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txDeathday}</f:link.action></td>
-                <td><f:link.action action="edit" arguments="{extendTtAddress : extendTtAddress}">Edit</f:link.action></td>
-                <td><f:link.action action="delete" arguments="{extendTtAddress : extendTtAddress}">Delete</f:link.action></td>
-            </tr>
-        </f:for>
-    </table>
-	</f:comment>
-	
-	
-	<f:debug>{_all}</f:debug>
-	<div class="row missionarsList">
-		<!--TYPO3SEARCH_begin-->
-		<div class="list large-12 medium-12 small-12 columns">
-			
-			<f:for each="{pagination.paginator.paginatedItems}" as="extendTtAddressesItem" iteration="iterator">
-				<f:render partial="Person/ListItemPerson" arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" />
-			</f:for>
-			
-			<f:comment>
-			<!--
-			<f:for each="{extendTtAddresses}" as="extendTtAddressesItem" iteration="iterator">
-				<f:render partial="Person/ListItemPerson" arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}"/>
-			</f:for>
-			-->
-			</f:comment>
-		</div>
-		<div class="large-12 medium-12 small-12 columns">
-			<f:render partial="Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}" />
-			<f:comment><!--
-			<f:render partial="Pagination"
-			          arguments="{pagination: pagination.pagination, pages: pagination.pages, paginator: pagination.paginator}"/>
-			--></f:comment>
-		</div>
-		<!--TYPO3SEARCH_end-->
-	</div>
-	
 </f:section>
 </html>

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model;
 
 
+use FriendsOfTYPO3\TtAddress\Domain\Model\Address;
+
 /**
  * This file is part of the "Extend TtAddress" Extension for TYPO3 CMS.
  *
@@ -17,7 +19,7 @@ namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model;
 /**
  * ExtendTtAddress
  */
-class ExtendTtAddress extends \FriendsOfTYPO3\TtAddress\Domain\Model\Address
+class ExtendTtAddress extends Address
 {
 
     /**

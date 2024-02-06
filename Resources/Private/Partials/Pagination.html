@@ -1,13 +1,14 @@
+<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
 <ul class="f3-widget-paginator">
     <f:if condition="{pagination.previousPageNumber} && {pagination.previousPageNumber} > {pagination.firstPageNumber}">
         <f:then>
-            <f:comment>
+            <f:comment><!--
                 <li class="first">
                     <a href="{f:uri.action(action:actionName, arguments:{currentPage: 1})}" title="{f:translate(key:'widget.pagination.first',extensionName:'fluid')}">
                         {f:translate(key:'widget.pagination.first', extensionName: 'fluid')}
                     </a>
                 </li>
-            </f:comment>
+            --></f:comment>
             <li class="previous">
                 <a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.previousPageNumber})}" title="{f:translate(key:'widget.pagination.previous',extensionName:'fluid')}">
                     {f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}
@@ -15,16 +16,16 @@
             </li>
         </f:then>
         <f:else>
-            <f:comment>
+            <f:comment><!--
                 <li class="disabled"><span>{f:translate(key:'widget.pagination.first', extensionName: 'fluid')}</span></li>
                 <li class="disabled"><span>{f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}</span></li>
-            </f:comment>
+            --></f:comment>
         </f:else>
     </f:if>
     <f:if condition="{pagination.hasLessPages}">
         <li>…</li>
     </f:if>
-    <f:for each="{pagination.allPageNumbers}" as="page">
+    <f:for as="page" each="{pagination.allPageNumbers}">
         <li class="{f:if(condition: '{page} == {paginator.currentPageNumber}', then:'current')}">
             <a href="{f:uri.action(action:actionName, arguments:{currentPage: page})}">{page}</a>
         </li>
@@ -39,19 +40,20 @@
                     {f:translate(key:'widget.pagination.next', extensionName: 'fluid')}
                 </a>
             </li>
-            <f:comment>
+            <f:comment><!--
                 <li class="last">
                     <a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.lastPageNumber})}" title="{f:translate(key:'widget.pagination.last',extensionName:'fluid')}">
                         {f:translate(key:'widget.pagination.last', extensionName: 'fluid')}
                     </a>
                 </li>
-            </f:comment>
+            --></f:comment>
         </f:then>
         <f:else>
-            <f:comment>
+            <f:comment><!--
                 <li class="disabled"><span>{f:translate(key:'widget.pagination.next', extensionName: 'fluid')}</span></li>
                 <li class="disabled"><span>{f:translate(key:'widget.pagination.last', extensionName: 'fluid')}</span></li>
-            </f:comment>
+            --></f:comment>
         </f:else>
     </f:if>
 </ul>
+</html>

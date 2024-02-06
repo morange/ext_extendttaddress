@@ -1,5 +1,5 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:layout name="Default" />
+<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:layout name="Default"/>
 
 This template is responsible for displaying a single view for a domain object
 
@@ -16,9 +16,9 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:section name="content">
     <h1>Single View for ExtendTtAddress</h1>
 
-    <f:flashMessages />
-    <f:render partial="ExtendTtAddress/Properties" arguments="{extendTtAddress:extendTtAddress}" />
-    <f:link.action action="list">Back to list</f:link.action><br />
+    <f:flashMessages/>
+    <f:render arguments="{extendTtAddress:extendTtAddress}" partial="ExtendTtAddress/Properties"/>
+    <f:link.action action="list">Back to list</f:link.action><br/>
     <f:link.action action="new">New ExtendTtAddress</f:link.action>
 </f:section>
 </html>

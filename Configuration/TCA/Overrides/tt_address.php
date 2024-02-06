@@ -1,4 +1,7 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') || die();
 
 /*
@@ -58,7 +61,7 @@ $tmp_ext_extendttaddress_columns = [
 
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_address', $tmp_ext_extendttaddress_columns);
+ExtensionManagementUtility::addTCAcolumns('tt_address', $tmp_ext_extendttaddress_columns);
 /*
 // inherit and extend the show items from the parent class
 if (isset($GLOBALS['TCA']['tt_address']['types']['0']['showitem'])) {
@@ -83,15 +86,15 @@ $GLOBALS['TCA']['tt_address']['columns'][$GLOBALS['TCA']['tt_address']['ctrl']['
 // \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_address', $fields);
 
 // Make fields visible in the TCEforms:
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-	'tt_address', // Table name
-	'--palette--;LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_db.xlf:tx_extextendttaddress_domain_model_extendttaddress;name',
-	// Field list to add
-	'1', // List of specific types to add the field list to. (If empty, all type entries are affected)
-	'after:name' // Insert fields before (default) or after one, or replace a field
+ExtensionManagementUtility::addToAllTCAtypes(
+    'tt_address', // Table name
+    '--palette--;LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_db.xlf:tx_extextendttaddress_domain_model_extendttaddress;name',
+    // Field list to add
+    '1', // List of specific types to add the field list to. (If empty, all type entries are affected)
+    'after:name' // Insert fields before (default) or after one, or replace a field
 );
 
 // Add the new palette:
 $GLOBALS['TCA']['tt_address']['palettes']['name'] = [
-	'showitem' =>  'gender, title, title_suffix,--linebreak--, first_name, middle_name, last_name,--linebreak--,name, tx_birthday, tx_deathday, --linebreak--,slug'
+    'showitem' => 'gender, title, title_suffix,--linebreak--, first_name, middle_name, last_name,--linebreak--,name, tx_birthday, tx_deathday, --linebreak--,slug'
 ];

@@ -1,21 +1,26 @@
 <?php
+
+use DerMatthesFrauHofer\ExtExtendttaddress\Controller\ExtendTtAddressController;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') || die();
 
-(static function() {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+(static function () {
+    ExtensionUtility::configurePlugin(
         'ExtExtendttaddress',
         'Extendttaddress',
         [
-            \DerMatthesFrauHofer\ExtExtendttaddress\Controller\ExtendTtAddressController::class => 'list, show, atoz, pulldown'
+            ExtendTtAddressController::class => 'list, show, atoz, pulldown'
         ],
         // non-cacheable actions
         [
-            \DerMatthesFrauHofer\ExtExtendttaddress\Controller\ExtendTtAddressController::class => ''
+            ExtendTtAddressController::class => ''
         ]
     );
 
     // wizards
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    ExtensionManagementUtility::addPageTSConfig(
         'mod {
             wizards.newContentElement.wizardItems.plugins {
                 elements {

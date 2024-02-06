@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
-		<header/>
-		<body>
-			<trans-unit id="extend_ttaddress.settings.settings" resname="flexforms_tab.settings">
-				<source>Settings</source>
-				<target>Einstellungen</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.settings.startingpoint" resname="extend_ttaddress.settings.startingpoint">
-				<source>Startingpoint</source>
-				<target>Ausgangspunkt</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.settings.list.paginate.itemsPerPage" resname="extend_ttaddress.settings.list.paginate.itemsPerPage">
-				<source>Items per Page</source>
-				<target>Einträge pro Seite</target>
-			</trans-unit>
+    <file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
+        <header/>
+        <body>
+            <trans-unit id="extend_ttaddress.settings.settings" resname="flexforms_tab.settings">
+                <source>Settings</source>
+                <target>Einstellungen</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.settings.startingpoint" resname="extend_ttaddress.settings.startingpoint">
+                <source>Startingpoint</source>
+                <target>Ausgangspunkt</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.settings.list.paginate.itemsPerPage" resname="extend_ttaddress.settings.list.paginate.itemsPerPage">
+                <source>Items per Page</source>
+                <target>Einträge pro Seite</target>
+            </trans-unit>
 
-			# Categories
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction" resname="extend_ttaddress.flexforms_general.categoryConjunction">
-				<source>Category mode</source>
-				<target>Kategoriemodus</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.all" resname="extend_ttaddress.flexforms_general.categoryConjunction.all">
-				<source>Don't care, show all</source>
-				<target>Nicht berücksichtigen, alle Nachrichten anzeigen</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.or" resname="extend_ttaddress.flexforms_general.categoryConjunction.or">
-				<source>Show items with selected categories (OR)</source>
-				<target>Zeige Nachrichten mit den ausgewählten Kategorien (ODER) [or]</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.and" resname="extend_ttaddress.flexforms_general.categoryConjunction.and">
-				<source>Show items with selected categories (AND)</source>
-				<target>Zeige Nachrichten mit den ausgewählten Kategorien (UND) [and]</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notor" resname="extend_ttaddress.flexforms_general.categoryConjunction.notor">
-				<source>Do NOT show items with selected categories (OR) [notor]</source>
-				<target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (ODER) [notor]</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notand" resname="extend_ttaddress.flexforms_general.categoryConjunction.notand">
-				<source>Do NOT show items with selected categories (AND) [notand]</source>
-				<target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (UND) [notand]</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.categories" resname="extend_ttaddress.flexforms_general.categories">
-				<source>Category selection</source>
-				<target>Kategorie-Auswahl</target>
-			</trans-unit>
-			<trans-unit id="extend_ttaddress.flexforms_general.includeSubCategories" resname="extend_ttaddress.flexforms_general.includeSubCategories">
-				<source>Include subcategories</source>
-				<target>Inklusive Unterkategorien</target>
-			</trans-unit>
-		</body>
-	</file>
+            # Categories
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction" resname="extend_ttaddress.flexforms_general.categoryConjunction">
+                <source>Category mode</source>
+                <target>Kategoriemodus</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.all" resname="extend_ttaddress.flexforms_general.categoryConjunction.all">
+                <source>Don't care, show all</source>
+                <target>Nicht berücksichtigen, alle Nachrichten anzeigen</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.or" resname="extend_ttaddress.flexforms_general.categoryConjunction.or">
+                <source>Show items with selected categories (OR)</source>
+                <target>Zeige Nachrichten mit den ausgewählten Kategorien (ODER) [or]</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.and" resname="extend_ttaddress.flexforms_general.categoryConjunction.and">
+                <source>Show items with selected categories (AND)</source>
+                <target>Zeige Nachrichten mit den ausgewählten Kategorien (UND) [and]</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notor" resname="extend_ttaddress.flexforms_general.categoryConjunction.notor">
+                <source>Do NOT show items with selected categories (OR) [notor]</source>
+                <target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (ODER) [notor]</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notand" resname="extend_ttaddress.flexforms_general.categoryConjunction.notand">
+                <source>Do NOT show items with selected categories (AND) [notand]</source>
+                <target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (UND) [notand]</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categories" resname="extend_ttaddress.flexforms_general.categories">
+                <source>Category selection</source>
+                <target>Kategorie-Auswahl</target>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.includeSubCategories" resname="extend_ttaddress.flexforms_general.includeSubCategories">
+                <source>Include subcategories</source>
+                <target>Inklusive Unterkategorien</target>
+            </trans-unit>
+        </body>
+    </file>
 </xliff>
