@@ -11,6 +11,7 @@ use GeorgRinger\NumberedPagination\NumberedPagination;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
 /**
@@ -33,12 +34,9 @@ class ExtendTtAddressController extends ActionController
      *
      * @var ExtendTtAddressRepository
      */
-    protected $extendTtAddressRepository = null;
+    protected ExtendTtAddressRepository $extendTtAddressRepository;
 
-    /**
-     * @param ExtendTtAddressRepository $extendTtAddressRepository
-     */
-    public function injectExtendTtAddressRepository(ExtendTtAddressRepository $extendTtAddressRepository)
+    public function __construct(ExtendTtAddressRepository $extendTtAddressRepository)
     {
         $this->extendTtAddressRepository = $extendTtAddressRepository;
     }
@@ -47,6 +45,7 @@ class ExtendTtAddressController extends ActionController
      * action list
      *
      * @return ResponseInterface
+     * @throws NoSuchArgumentException
      */
     public function listAction(): ResponseInterface
     {
