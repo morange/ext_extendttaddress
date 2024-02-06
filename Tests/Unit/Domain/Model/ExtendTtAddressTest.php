@@ -38,28 +38,28 @@ class ExtendTtAddressTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTxBirthdayReturnsInitialValueForString|null(): void
+    public function getTxBirthdayReturnsInitialValueForString(): void
     {
     }
 
     /**
      * @test
      */
-    public function setTxBirthdayForString|nullSetsTxBirthday(): void
+    public function setTxBirthdayForStringSetsTxBirthday(): void
     {
     }
 
     /**
      * @test
      */
-    public function getTxDeathdayReturnsInitialValueForString|null(): void
+    public function getTxDeathdayReturnsInitialValueForString(): void
     {
     }
 
     /**
      * @test
      */
-    public function setTxDeathdayForString|nullSetsTxDeathday(): void
+    public function setTxDeathdayForStringSetsTxDeathday(): void
     {
     }
 }

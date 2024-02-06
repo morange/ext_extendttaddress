@@ -25,23 +25,23 @@ class ExtendTtAddress extends Address
     /**
      * txBirthday
      *
-     * @var string|null
+     * @var ?string
      */
-    protected $txBirthday = null;
+    protected ?string $txBirthday = null;
 
     /**
      * txDeathday
      *
-     * @var string|null
+     * @var ?string
      */
-    protected $txDeathday = null;
+    protected ?string $txDeathday = null;
 
     /**
      * Returns the txBirthday
      *
-     * @return string|null
+     * @return ?string
      */
-    public function gettxBirthday()
+    public function gettxBirthday(): ?string
     {
         return $this->txBirthday;
     }
@@ -49,10 +49,10 @@ class ExtendTtAddress extends Address
     /**
      * Sets the txBirthday
      *
-     * @param string|null $txBirthday
+     * @param ?string $txBirthday
      * @return void
      */
-    public function settxBirthday(?string $txBirthday)
+    public function settxBirthday(?string $txBirthday): void
     {
         $this->txBirthday = $txBirthday;
     }
@@ -60,9 +60,9 @@ class ExtendTtAddress extends Address
     /**
      * Returns the txDeathday
      *
-     * @return string|null
+     * @return ?string
      */
-    public function getTxDeathday()
+    public function getTxDeathday(): ?string
     {
         return $this->txDeathday;
     }
@@ -70,10 +70,10 @@ class ExtendTtAddress extends Address
     /**
      * Sets the txDeathday
      *
-     * @param string|null $txDeathday
+     * @param ?string $txDeathday
      * @return void
      */
-    public function setTxDeathday(?string $txDeathday)
+    public function setTxDeathday(?string $txDeathday): void
     {
         $this->txDeathday = $txDeathday;
     }

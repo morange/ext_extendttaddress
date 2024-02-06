@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
@@ -19,6 +20,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * The repository for ExtendTtAddresses
+ * @method findByLastName(string $string)
  */
 class ExtendTtAddressRepository extends Repository
 {
@@ -33,6 +35,9 @@ class ExtendTtAddressRepository extends Repository
         'last_name' => QueryInterface::ORDER_ASCENDING
     ];
 
+    /**
+     * @throws InvalidQueryException
+     */
     public function findByCategory($categoryid)
     {
         $query = $this->createQuery();
