@@ -13,10 +13,15 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
+<f:comment>
+	<f:for each="{pagination.paginator.paginatedItems}" as="extendTtAddresses" iteration="iterator">
+	</f:for>
+</f:comment>
+
 <f:section name="content">
+	<f:comment>
     <h1>List Listing for ExtendTtAddress</h1>
 
-	<f:debug>{_all}</f:debug>
     <f:flashMessages />
 
     <table class="tx_extextendttaddress">
@@ -29,6 +34,35 @@ Otherwise your changes will be overwritten the next time you save the extension 
             </tr>
         </f:for>
     </table>
-
+	</f:comment>
+	
+	
+	<f:debug>{_all}</f:debug>
+	<div class="row missionarsList">
+		<!--TYPO3SEARCH_begin-->
+		<div class="list large-12 medium-12 small-12 columns">
+			
+			<f:for each="{pagination.paginator.paginatedItems}" as="extendTtAddressesItem" iteration="iterator">
+				<f:render partial="Person/ListItemPerson" arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" />
+			</f:for>
+			
+			<f:comment>
+			<!--
+			<f:for each="{extendTtAddresses}" as="extendTtAddressesItem" iteration="iterator">
+				<f:render partial="Person/ListItemPerson" arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}"/>
+			</f:for>
+			-->
+			</f:comment>
+		</div>
+		<div class="large-12 medium-12 small-12 columns">
+			<f:render partial="Pagination" arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}" />
+			<f:comment><!--
+			<f:render partial="Pagination"
+			          arguments="{pagination: pagination.pagination, pages: pagination.pages, paginator: pagination.paginator}"/>
+			--></f:comment>
+		</div>
+		<!--TYPO3SEARCH_end-->
+	</div>
+	
 </f:section>
 </html>

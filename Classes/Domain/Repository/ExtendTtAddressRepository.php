@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository;
 
+use \TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use \TYPO3\CMS\Extbase\Persistence\Repository;
+
 
 /**
  * This file is part of the "Extend TtAddress" Extension for TYPO3 CMS.
@@ -23,7 +26,18 @@ class ExtendTtAddressRepository extends \TYPO3\CMS\Extbase\Persistence\Repositor
     /**
      * @var array
      */
-    protected $defaultOrderings = ['sorting' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING];
+	/*
+	 * @method QueryResultInterface findByLastName(string $last_name)
+	 */
+	protected $defaultOrderings = [
+		'last_name' => QueryInterface::ORDER_ASCENDING
+	];
+
+	public function findByCategory($categoryid) {
+		$query = $this->createQuery();
+		$query->matching($query->contains('categories', $categoryid));
+		return $query->execute();
+	}
 }
 
 

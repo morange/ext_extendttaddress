@@ -1,0 +1,37 @@
+<div class="item large-6 medium-6 small-12 columns vcard worker boxshadow" itemscope
+     itemtype="http://schema.org/Person">
+
+	<div class="row">
+				<f:link.action action="show" pageUid="{settings.singlePid}"
+				               arguments="{address: address, listPageUid: listPageUid}"
+				               class="large-4 medium-4 small-4 columns addressImage">
+					<f:render partial="Person/ImagePerson" arguments="{addressItem:addressItem}"/>
+				</f:link.action>
+				
+				<div class="large-8 medium-8 small-8 columns">
+					<f:link.action action="show" pageUid="{settings.singlePid}"
+					               arguments="{address: address, listPageUid: listPageUid}">
+						<h5>{addressItem.firstName} {addressItem.middleName} {addressItem.lastName}</h5>
+					</f:link.action>
+					<f:if condition="{addressItem.txBirthday} OR {addressItem.txDeathday}">
+						<p>{addressItem.txBirthday}
+							<f:if condition="{addressItem.txDeathday}">
+								<f:then>
+									- {addressItem.txDeathday}
+								</f:then>
+								<f:else>
+								</f:else>
+							</f:if>
+						</p>
+					</f:if>
+					<f:if condition="{settings.singlePid}">
+						<f:link.action action="show" pageUid="{settings.singlePid}"
+						               arguments="{address: address, listPageUid: listPageUid}"
+						               class="large-12 medium-12 small-12 link biography signafter">
+							<f:translate
+									key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.label.biografy"/>
+						</f:link.action>
+					</f:if>
+				</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+
+<f:if condition="{addressItem.image}">
+	<f:then>
+    <f:for each="{addressItem.image}" as="image">
+        <f:if condition="{addressItem.clickenlarge}">
+            <f:then>
+                <a href="{image.originalResource.publicUrl}" class="lightbox">
+                    <f:image treatIdAsReference="1" src="{image.uid}"
+                             width="{f:if(condition:'{imageWidth}',then:'{imageWidth}',else:'120c')}"
+                             height="{f:if(condition:'{imageHeight}',then:'{imageHeight}',else:'')}" />
+                </a>
+            </f:then>
+            <f:else>
+                <figure class="figure square">
+                  <f:image treatIdAsReference="1" src="{image.uid}"
+                           width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"
+                           height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}" />
+                </figure>
+            </f:else>
+        </f:if>
+    </f:for>
+	</f:then>
+	<f:else>
+		<figure class="figure square">
+			<f:image treatIdAsReference="1" src="fileadmin/user_upload/missionswerk/06_personen/missionare/00_platzhalter.jpg"
+			         width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"
+			         height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}" />
+		</figure>
+	</f:else>
+</f:if>

@@ -23,6 +23,7 @@
 			</trans-unit>
 			<trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.label.biografy">
 				<source>Biografy</source>
+				<target>Biografie</target>
 			</trans-unit>
 		</body>
 	</file>
