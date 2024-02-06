@@ -10,10 +10,10 @@
                 <source>Extend Tt Address for filtering from A to Z and Pulldown</source>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday">
-                <source>Tx Birtday</source>
+                <source>Tx Birthday</source>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description">
-                <source>Tx Birtday</source>
+                <source>Tx Birthday</source>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday">
                 <source>Tx Deathday</source>

@@ -4,7 +4,7 @@
         <header/>
         <body>
             <trans-unit id="tx_birthday.description" resname="tx_birthday.description">
-                <source>Birtday</source>
+                <source>Birthday</source>
             </trans-unit>
             <trans-unit id="tx_deathday.description" resname="tx_deathday.description">
                 <source>Deathday</source>

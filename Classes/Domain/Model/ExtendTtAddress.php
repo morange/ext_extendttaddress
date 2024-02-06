@@ -23,7 +23,7 @@ class ExtendTtAddress extends Address
 {
 
     /**
-     * txBirtday
+     * txBirthday
      *
      * @var string|null
      */

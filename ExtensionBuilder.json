@@ -44,7 +44,7 @@
                             "propertyIsL10nModeExclude": false,
                             "propertyIsNullable": true,
                             "propertyIsRequired": false,
-                            "propertyName": "txBirtday",
+                            "propertyName": "txBirthday",
                             "propertyType": "String",
                             "uid": "831044377989"
                         },
