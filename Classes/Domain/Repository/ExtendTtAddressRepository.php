@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository;
 
 use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\Category;
-use TYPO3\CMS\Core\Utility\DebugUtility;
+use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 
@@ -41,10 +42,10 @@ class ExtendTtAddressRepository extends Repository
     /**
      * @throws InvalidQueryException
      */
-    public function findByCategories(ObjectStorage $categories, string $conjunction, ?ObjectStorage $subCategories = null)
+    public function findByCategories(ObjectStorage $categories, string $conjunction, ?ObjectStorage $subCategories, string $atozvalue = '')
     {
         $query = $this->createQuery();
-        $constraint = null;
+        $constraints = [];
         $categoryConstraints = [];
 
         // If "ignore category selection" is used, nothing needs to be done
@@ -70,33 +71,90 @@ class ExtendTtAddressRepository extends Repository
         }
 
         foreach ($categories as $category) {
-            $categoryConstraints[] = $constraint = $query->contains('categories', $category);
+            $categoryConstraints[] = $query->contains('categories', $category);
         }
 
         if ($categoryConstraints) {
             switch (strtolower($conjunction)) {
                 case 'or':
-                    $constraint = $query->logicalOr($categoryConstraints);
+                    $constraints[] = $query->logicalOr($categoryConstraints);
                     break;
                 case 'notor':
-                    $constraint = $query->logicalNot($query->logicalOr($categoryConstraints));
+                    $constraints[] = $query->logicalNot($query->logicalOr($categoryConstraints));
                     break;
                 case 'notand':
-                    $constraint = $query->logicalNot($query->logicalAnd($categoryConstraints));
+                    $constraints[] = $query->logicalNot($query->logicalAnd($categoryConstraints));
                     break;
                 case 'and':
                 default:
-                    $constraint = $query->logicalAnd($categoryConstraints);
+                    $constraints[] = $query->logicalAnd($categoryConstraints);
             }
         }
 
-        if ($constraint !== null) {
+        if ($atozvalue !== '') {
+            $constraints[] = $query->like('lastName', $atozvalue . '%');
+        }
+
+        if ($constraints !== null) {
             $query->matching(
-                $query->logicalAnd($constraint)
+                $query->logicalAnd($constraints)
             );
         }
 
         return $query->execute();
+    }
+
+    /**
+     * @param string $atozvalue
+     * @return array|object[]|QueryResultInterface
+     * @throws InvalidQueryException
+     */
+    public function findAll(string $atozvalue = '')
+    {
+        $query = $this->createQuery();
+
+        if ($atozvalue !== '') {
+            $query->matching(
+                $query->like('lastName', $atozvalue . '%')
+            );
+        }
+
+        return $query->execute();
+    }
+
+    /**
+     * @throws InvalidQueryException
+     */
+    public function getFirstLettersOfLastNameByCategory(ObjectStorage $categories, string $conjunction, ?ObjectStorage $subCategories): array
+    {
+        return $this->getFirstLettersFromResults(
+            $this->findByCategories($categories, $conjunction, $subCategories)
+        );
+    }
+
+    /**
+     * @return array
+     * @throws InvalidQueryException
+     */
+    public function getFirstLettersOfLastName(): array
+    {
+        return $this->getFirstLettersFromResults(
+            $this->findAll()
+        );
+    }
+
+    /**
+     * @param $results
+     * @return array
+     */
+    protected function getFirstLettersFromResults($results): array
+    {
+        $chars = [];
+        /** @var ExtendTtAddress $extendTtAddress */
+        foreach ($results as $result) {
+            $chars[] = strtoupper(substr($result->getLastName(), 0, 1));
+        }
+        return $chars;
     }
 }
 

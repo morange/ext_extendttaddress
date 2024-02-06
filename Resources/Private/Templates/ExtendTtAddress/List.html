@@ -19,41 +19,52 @@ Otherwise your changes will be overwritten the next time you save the extension 
 --></f:comment>
 
 <f:section name="content">
-    <f:comment><!--
-        <h1>List Listing for ExtendTtAddress</h1>
-        <f:flashMessages/>
-        <table class="tx_extextendttaddress">
-            <f:for as="extendTtAddress" each="{extendTtAddresses}">
-                <tr>
-                    <td>
-                        <f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txBirthday}</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="show" arguments="{extendTtAddress : extendTtAddress}">{extendTtAddress.txDeathday}</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="edit" arguments="{extendTtAddress : extendTtAddress}">Edit</f:link.action>
-                    </td>
-                    <td>
-                        <f:link.action action="delete" arguments="{extendTtAddress : extendTtAddress}">Delete</f:link.action>
-                    </td>
-                </tr>
-            </f:for>
-        </table>
-    --></f:comment>
-
     <div class="row missionarsList">
         <!--TYPO3SEARCH_begin-->
         <div class="list large-12 medium-12 small-12 columns">
-            <f:for as="extendTtAddressesItem" each="{pagination.paginator.paginatedItems}" iteration="iterator">
-                <f:render arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" partial="Person/ListItemPerson"/>
-            </f:for>
-        </div>
-        <div class="large-12 medium-12 small-12 columns">
-            <f:render arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}" partial="Pagination"/>
+            <f:if condition="{atoz -> f:count()} > 0">
+                <f:for as="value" each="{atoz}">
+                    <f:if condition="{value.active}">
+                        <f:then>
+                            <f:if condition="{value.character} == {atozvalue}">
+                                <f:then>
+                                    <span class="activelinkcolor">{value.character}</span>
+                                </f:then>
+                                <f:else>
+                                    <f:link.action action="list" arguments="{atoz:value.character}" class="lifelink">
+                                        {value.character}
+                                    </f:link.action>
+                                </f:else>
+                            </f:if>
+                        </f:then>
+                        <f:else>
+                            <span class="deadlinkcolor">{value.character}</span>
+                        </f:else>
+                    </f:if>
+                    &nbsp;<span class="divoc">|</span>&nbsp;
+                </f:for>
+                <f:if condition="{atozvalue} == ''">
+                    <f:then>
+                        <span class="activelinkcolor"><f:translate key="allLetters"/></span>
+                    </f:then>
+                    <f:else>
+                        <f:link.action action="list" class="lifelink">
+                            <f:translate key="allLetters"/>
+                        </f:link.action>
+                    </f:else>
+                </f:if>
+            </f:if>
+
+            <div class="list large-12 medium-12 small-12 columns">
+                <f:for as="extendTtAddressesItem" each="{pagination.paginator.paginatedItems}" iteration="iterator">
+                    <f:render arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" partial="Person/ListItemPerson"/>
+                </f:for>
+            </div>
+            <div class="large-12 medium-12 small-12 columns">
+                <f:render arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}" partial="Pagination"/>
+            </div>
         </div>
         <!--TYPO3SEARCH_end-->
     </div>
-
 </f:section>
 </html>

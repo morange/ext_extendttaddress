@@ -59,12 +59,12 @@ class ExtendTtAddressController extends ActionController
      * action list
      *
      * @return ResponseInterface
-     * @throws NoSuchArgumentException
      * @throws InvalidQueryException
+     * @throws NoSuchArgumentException
      */
     public function listAction(): ResponseInterface
     {
-        $extendTtAddresses = [];
+        $atozvalue = ($this->request->hasArgument('atoz')) ? $this->request->getArgument('atoz') : '';
 
         if ($this->settings['categories'] !== '') {
             $categoryUids = GeneralUtility::intExplode(',', $this->settings['categories']);
@@ -82,9 +82,11 @@ class ExtendTtAddressController extends ActionController
                 $subCategories = $this->categoryRepository->getSubCategories($categories);
             }
 
-            $extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, $categoryConjunction, $subCategories);
+            $extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, $categoryConjunction, $subCategories, $atozvalue);
+            $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, $categoryConjunction, $subCategories);
         } else {
-            $extendTtAddresses = $this->extendTtAddressRepository->findAll();
+            $extendTtAddresses = $this->extendTtAddressRepository->findAll($atozvalue);
+            $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastName();
         }
 
         $itemsPerPage = $this->settings['list']['paginate']['itemsPerPage'];
@@ -94,15 +96,17 @@ class ExtendTtAddressController extends ActionController
         $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $extendTtAddresses, $currentPage, $itemsPerPage);
         $pagination = GeneralUtility::makeInstance(NumberedPagination::class, $paginator, $maximumLinks);
 
-        //$res = $this->extendTtAddressRepository->
-
-//		$atoz = [];
-//		foreach (range("A", "Z") as $char) {
-//			$atoz[] = ["character" => $char, "active" => (array_search($char, $res) !== false)];
-//		}
+        $atoz = [];
+        foreach (range("A", "Z") as $char) {
+            $atoz[] = [
+                "character" => $char,
+                "active" => (in_array($char, $firstLettersOfLastName, true))
+            ];
+        }
 
         $this->view->assignMultiple([
-            'extendTtAddresses' => $extendTtAddresses,
+            'atozvalue' => $atozvalue,
+            'atoz' => $atoz,
             'pagination' => [
                 'paginator' => $paginator,
                 'pagination' => $pagination,
