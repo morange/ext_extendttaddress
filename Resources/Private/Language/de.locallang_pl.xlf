@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-    <file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
-        <header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" datatype="plaintext" product-name="ext_extendttaddress" date="2024-02-06T22:07:54+01:00">
+        <header></header>
         <body>
-            <trans-unit id="extend_ttaddress.settings.settings" resname="flexforms_tab.settings">
+            <trans-unit id="extend_ttaddress.settings.settings" resname="extend_ttaddress.settings.settings">
                 <source>Settings</source>
                 <target>Einstellungen</target>
             </trans-unit>
@@ -15,14 +15,12 @@
                 <source>Items per Page</source>
                 <target>Einträge pro Seite</target>
             </trans-unit>
-
-            # Categories
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction" resname="extend_ttaddress.flexforms_general.categoryConjunction">
                 <source>Category mode</source>
                 <target>Kategoriemodus</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.all" resname="extend_ttaddress.flexforms_general.categoryConjunction.all">
-                <source>Don't care, show all</source>
+                <source>Don&#39;t care, show all</source>
                 <target>Nicht berücksichtigen, alle Nachrichten anzeigen</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.or" resname="extend_ttaddress.flexforms_general.categoryConjunction.or">

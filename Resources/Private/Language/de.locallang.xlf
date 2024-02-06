@@ -1,29 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<xliff version="1.0">
-    <file source-language="en,de" datatype="plaintext" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" date="2024-02-05T11:10:38Z" product-name="ext_extendttaddress">
-        <header/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns:t3="http://typo3.org/schemas/xliff" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="de" original="EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf" datatype="plaintext" product-name="ext_extendttaddress" date="2024-02-06T22:06:33+01:00">
+        <header></header>
         <body>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress" resname="tx_extextendttaddress_domain_model_extendttaddress">
                 <source>Extend Tt Address</source>
+                <target>Tt Address Erweiterung</target>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.description" resname="tx_extextendttaddress_domain_model_extendttaddress.description">
                 <source>Extend Tt Address for filtering from A to Z and Pulldown</source>
+                <target>Erweiterung von Tt Address für die Filterung von A bis Z und Pulldown</target>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday">
                 <source>Tx Birthday</source>
+                <target>Tx Geburtstag</target>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_birthday.description">
                 <source>Tx Birthday</source>
+                <target>Tx Geburtstag</target>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday">
                 <source>Tx Deathday</source>
+                <target>Tx Todestag</target>
             </trans-unit>
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday.description" resname="tx_extextendttaddress_domain_model_extendttaddress.tx_deathday.description">
                 <source>Tx Deathday</source>
+                <target>Tx Todestag</target>
             </trans-unit>
-            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.label.biografy">
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.label.biografy" resname="tx_extextendttaddress_domain_model_extendttaddress.label.biografy">
                 <source>Biografy</source>
                 <target>Biografie</target>
+            </trans-unit>
+            <trans-unit id="allLetters" resname="allLetters">
+                <source>All</source>
+                <target>Alle</target>
             </trans-unit>
         </body>
     </file>
