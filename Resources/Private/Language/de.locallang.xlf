@@ -31,7 +31,15 @@
                 <source>Biografy</source>
                 <target>Biografie</target>
             </trans-unit>
-            <trans-unit id="allLetters" resname="allLetters">
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.allLetters" resname="tx_extextendttaddress_domain_model_extendttaddress.allLetters">
+                <source>All</source>
+                <target>Alle</target>
+            </trans-unit>
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.dropdown.button" resname="tx_extextendttaddress_domain_model_extendttaddress.dropdown.button">
+                <source>Choose …</source>
+                <target>Wählen Sie …</target>
+            </trans-unit>
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.dropdown.all" resname="tx_extextendttaddress_domain_model_extendttaddress.dropdown.all">
                 <source>All</source>
                 <target>Alle</target>
             </trans-unit>

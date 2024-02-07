@@ -13,10 +13,6 @@ in /Configuration/ExtensionBuilder/settings.yaml:
 
 Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
-<f:comment><!--
-    <f:for as="extendTtAddresses" each="{pagination.paginator.paginatedItems}" iteration="iterator">
-    </f:for>
---></f:comment>
 
 <f:section name="content">
     <div class="row missionarsList">
@@ -57,10 +53,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		            </div>
 		            
 		            <div data-dropdown-menu class="dropdown-menu large-3 medium-3 small-12 columns">
-			            <a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a>
+			            <a href="#" class="button" data-dropdown="drop">
+				            <f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.button"/>
+			            </a>
 			            <ul id="drop" class="large-12 medium-12 small-12 columns dropdown" data-dropdown-content>
 				            <li>
-					            <f:link.page pageUid="91" class="contryLink">alle</f:link.page>
+					            <f:link.page pageUid="91" class="contryLink">
+						            <f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.all"/>
+					            </f:link.page>
 				            </li>
 				            <f:for each="{countryCategories}" as="countryCategory">
 					            <f:if condition="{overrideCategory} == {countryCategory.uid}">

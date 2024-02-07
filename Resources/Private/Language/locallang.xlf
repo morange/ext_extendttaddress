@@ -24,7 +24,13 @@
             <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.label.biografy" resname="tx_extextendttaddress_domain_model_extendttaddress.label.biografy">
                 <source>Biografy</source>
             </trans-unit>
-            <trans-unit id="allLetters" resname="allLetters">
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.allLetters" resname="tx_extextendttaddress_domain_model_extendttaddress.allLetters">
+                <source>All</source>
+            </trans-unit>
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.dropdown.button" resname="tx_extextendttaddress_domain_model_extendttaddress.dropdown.button">
+                <source>Choose …</source>
+            </trans-unit>
+            <trans-unit id="tx_extextendttaddress_domain_model_extendttaddress.dropdown.all" resname="tx_extextendttaddress_domain_model_extendttaddress.dropdown.all">
                 <source>All</source>
             </trans-unit>
         </body>

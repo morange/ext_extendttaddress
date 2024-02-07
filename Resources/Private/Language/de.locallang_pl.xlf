@@ -21,23 +21,23 @@
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.all" resname="extend_ttaddress.flexforms_general.categoryConjunction.all">
                 <source>Don&#39;t care, show all</source>
-                <target>Nicht berücksichtigen, alle Nachrichten anzeigen</target>
+                <target>Nicht berücksichtigen, alle Personen anzeigen</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.or" resname="extend_ttaddress.flexforms_general.categoryConjunction.or">
                 <source>Show items with selected categories (OR)</source>
-                <target>Zeige Nachrichten mit den ausgewählten Kategorien (ODER) [or]</target>
+                <target>Zeige Personen mit den ausgewählten Kategorien (ODER) [or]</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.and" resname="extend_ttaddress.flexforms_general.categoryConjunction.and">
                 <source>Show items with selected categories (AND)</source>
-                <target>Zeige Nachrichten mit den ausgewählten Kategorien (UND) [and]</target>
+                <target>Zeige Personen mit den ausgewählten Kategorien (UND) [and]</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notor" resname="extend_ttaddress.flexforms_general.categoryConjunction.notor">
                 <source>Do NOT show items with selected categories (OR) [notor]</source>
-                <target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (ODER) [notor]</target>
+                <target>Zeige KEINE Personen aus den ausgewählten Kategorien (ODER) [notor]</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction.notand" resname="extend_ttaddress.flexforms_general.categoryConjunction.notand">
                 <source>Do NOT show items with selected categories (AND) [notand]</source>
-                <target>Zeige KEINE Nachrichten aus den ausgewählten Kategorien (UND) [notand]</target>
+                <target>Zeige KEINE Personen aus den ausgewählten Kategorien (UND) [notand]</target>
             </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categories" resname="extend_ttaddress.flexforms_general.categories">
                 <source>Category selection</source>
