@@ -16,6 +16,7 @@ use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+// use TYPO3\CMS\Core\Utility\DebugUtility;
 
 /**
  * This file is part of the "Extend TtAddress" Extension for TYPO3 CMS.
@@ -65,8 +66,16 @@ class ExtendTtAddressController extends ActionController
     public function listAction(): ResponseInterface
     {
         $atozvalue = ($this->request->hasArgument('atoz')) ? $this->request->getArgument('atoz') : '';
+		$overrideCategory = (int)(($this->request->hasArgument('overrideCategory')) ? $this->request->getArgument('overrideCategory') : 0);
 
-        if ($this->settings['categories'] !== '') {
+		if($overrideCategory !== 0) {
+			$categories = GeneralUtility::makeInstance(ObjectStorage::class);
+			$categoryObject = $this->categoryRepository->findByUid($overrideCategory);
+			$categories->attach($categoryObject);
+			$extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, 'and', null, $atozvalue);
+			$firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, 'and', null, $atozvalue);
+		}
+        else if ($this->settings['categories'] !== '') {
             $categoryUids = GeneralUtility::intExplode(',', $this->settings['categories']);
             $categoryConjunction = (string)$this->settings['categoryConjunction'];
             $includeSubCategories = (bool)$this->settings['includeSubCategories'];
@@ -104,7 +113,14 @@ class ExtendTtAddressController extends ActionController
             ];
         }
 
+		$countryParentCategory = $this->categoryRepository->findByUid(36);
+		$countryCategories = $this->categoryRepository->getSubCategories([$countryParentCategory]);
+		$countryCategories->detach($countryParentCategory);
+
+		// DebugUtility::debug($countryCategories);
         $this->view->assignMultiple([
+			'countryCategories' => $countryCategories,
+			'overrideCategory' => $overrideCategory,
             'atozvalue' => $atozvalue,
             'atoz' => $atoz,
             'pagination' => [

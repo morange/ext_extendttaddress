@@ -23,36 +23,92 @@ Otherwise your changes will be overwritten the next time you save the extension 
         <!--TYPO3SEARCH_begin-->
         <div class="list large-12 medium-12 small-12 columns">
             <f:if condition="{atoz -> f:count()} > 0">
-                <f:for as="value" each="{atoz}">
-                    <f:if condition="{value.active}">
-                        <f:then>
-                            <f:if condition="{value.character} == {atozvalue}">
-                                <f:then>
-                                    <span class="activelinkcolor">{value.character}</span>
-                                </f:then>
-                                <f:else>
-                                    <f:link.action action="list" arguments="{atoz:value.character}" class="lifelink">
-                                        {value.character}
-                                    </f:link.action>
-                                </f:else>
-                            </f:if>
-                        </f:then>
-                        <f:else>
-                            <span class="deadlinkcolor">{value.character}</span>
-                        </f:else>
-                    </f:if>
-                    &nbsp;<span class="divoc">|</span>&nbsp;
-                </f:for>
-                <f:if condition="{atozvalue} == ''">
-                    <f:then>
-                        <span class="activelinkcolor"><f:translate key="allLetters"/></span>
-                    </f:then>
-                    <f:else>
-                        <f:link.action action="list" class="lifelink">
-                            <f:translate key="allLetters"/>
-                        </f:link.action>
-                    </f:else>
-                </f:if>
+	            <div class="row atoz">
+		            <div class="large-9 medium-9 small-12 columns">
+		                <f:for as="value" each="{atoz}">
+		                    <f:if condition="{value.active}">
+		                        <f:then>
+		                            <f:if condition="{value.character} == {atozvalue}">
+		                                <f:then>
+		                                    <span class="activelinkcolor">{value.character}</span>
+		                                </f:then>
+		                                <f:else>
+		                                    <f:link.action action="list" arguments="{atoz:value.character}" class="lifelink">
+		                                        {value.character}
+		                                    </f:link.action>
+		                                </f:else>
+		                            </f:if>
+		                        </f:then>
+		                        <f:else>
+		                            <span class="deadlinkcolor">{value.character}</span>
+		                        </f:else>
+		                    </f:if>
+		                </f:for>
+		                <f:if condition="{atozvalue} == ''">
+		                    <f:then>
+		                        <span class="activelinkcolor"><f:translate key="allLetters"/></span>
+		                    </f:then>
+		                    <f:else>
+		                        <f:link.action action="list" class="lifelink">
+		                            <f:translate key="allLetters"/>
+		                        </f:link.action>
+		                    </f:else>
+		                </f:if>
+		            </div>
+		            
+		            <div data-dropdown-menu class="dropdown-menu large-3 medium-3 small-12 columns">
+			            <a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a>
+			            <ul id="drop" class="large-12 medium-12 small-12 columns dropdown" data-dropdown-content>
+				            <li>
+					            <f:link.page pageUid="91" class="contryLink">alle</f:link.page>
+				            </li>
+				            <f:for each="{countryCategories}" as="countryCategory">
+					            <f:if condition="{overrideCategory} == {countryCategory.uid}">
+						            <f:then>
+							            <li class="active">
+								            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
+									            {countryCategory.title}
+								            </f:link.action>
+							            </li>
+						            </f:then>
+						            <f:else>
+							            <li>
+								            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
+									            {countryCategory.title}
+								            </f:link.action>
+							            </li>
+						            </f:else>
+					            </f:if>
+				            </f:for>
+			            </ul>
+		            </div>
+		            
+		            <f:comment><!--
+		            <ul data-dropdown-menu class="dropdown menu large-3 medium-3 small-12 columns">
+			            <li>
+				            <f:link.page pageUid="91" class="contryLink">alle</f:link.page>
+			            </li>
+			            <f:for each="{countryCategories}" as="countryCategory">
+				            <f:if condition="{overrideCategory} == {countryCategory.uid}">
+					            <f:then>
+						            <li class="active">
+							            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
+								            {countryCategory.title}
+							            </f:link.action>
+						            </li>
+					            </f:then>
+					            <f:else>
+						            <li>
+							            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
+								            {countryCategory.title}
+							            </f:link.action>
+						            </li>
+					            </f:else>
+				            </f:if>
+			            </f:for>
+		            </ul>
+		            --></f:comment>
+	            </div>
             </f:if>
 
             <div class="list large-12 medium-12 small-12 columns">

@@ -11,7 +11,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
-
+// use TYPO3\CMS\Core\Utility\DebugUtility;
 
 /**
  * This file is part of the "Extend TtAddress" Extension for TYPO3 CMS.
@@ -50,7 +50,7 @@ class ExtendTtAddressRepository extends Repository
 
         // If "ignore category selection" is used, nothing needs to be done
         if (empty($conjunction)) {
-            return $query->execute();
+			return $this->findAll($atozvalue);
         }
 
         foreach ($categories as $category) {
@@ -92,6 +92,7 @@ class ExtendTtAddressRepository extends Repository
         }
 
         if ($atozvalue !== '') {
+			// DebugUtility::debug($atozvalue);
             $constraints[] = $query->like('lastName', $atozvalue . '%');
         }
 
