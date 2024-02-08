@@ -1,34 +1,36 @@
-<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<f:if condition="{addressItem.image}">
-    <f:then>
-        <f:for as="image" each="{addressItem.image}">
-            <f:if condition="{addressItem.clickenlarge}">
-                <f:then>
-                    <a class="lightbox" href="{image.originalResource.publicUrl}">
-                        <f:image height="{f:if(condition:'{imageHeight}',then:'{imageHeight}',else:'')}"
-                                 src="{image.uid}"
-                                 treatIdAsReference="1"
-                                 width="{f:if(condition:'{imageWidth}',then:'{imageWidth}',else:'120c')}"/>
-                    </a>
-                </f:then>
-                <f:else>
-                    <figure class="figure square">
-                        <f:image height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}"
-                                 src="{image.uid}"
-                                 treatIdAsReference="1"
-                                 width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"/>
-                    </figure>
-                </f:else>
-            </f:if>
-        </f:for>
-    </f:then>
-    <f:else>
-        <figure class="figure square">
-            <f:image height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}"
-                     src="fileadmin/user_upload/missionswerk/06_personen/missionare/00_platzhalter.jpg"
-                     treatIdAsReference="1"
-                     width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"/>
-        </figure>
-    </f:else>
-</f:if>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+	<f:if condition="{addressItem.image}">
+		<f:then>
+			<f:for as="image" each="{addressItem.image}">
+				<f:if condition="{addressItem.clickenlarge}">
+					<f:then>
+						<a class="lightbox" href="{image.originalResource.publicUrl}">
+							<f:image height="{f:if(condition:'{imageHeight}',then:'{imageHeight}',else:'')}"
+							         src="{image.uid}"
+							         treatIdAsReference="1"
+							         width="{f:if(condition:'{imageWidth}',then:'{imageWidth}',else:'120c')}"/>
+						</a>
+					</f:then>
+					<f:else>
+						<figure class="figure square">
+							<f:image height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}"
+							         src="{image.uid}"
+							         treatIdAsReference="1"
+							         width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"/>
+						</figure>
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:then>
+		<f:else>
+			<figure class="figure square">
+				<f:image height="{f:if(condition:'{imageHeight} !=0',then:'{imageHeight}',else:'130c')}"
+				         src="fileadmin/user_upload/missionswerk/06_personen/missionare/00_platzhalter.jpg"
+				         treatIdAsReference="1"
+				         width="{f:if(condition:'{imageWidth} != 0',then:'{imageWidth}',else:'130c')}"/>
+			</figure>
+		</f:else>
+	</f:if>
+</f:spaceless>
 </html>

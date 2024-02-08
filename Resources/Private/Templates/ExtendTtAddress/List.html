@@ -1,126 +1,54 @@
 <html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<f:layout name="Default"/>
-
-This template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        ExtendTtAddress:
-          List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
-
-<f:section name="content">
-    <div class="row missionarsList">
-        <!--TYPO3SEARCH_begin-->
-        <div class="list large-12 medium-12 small-12 columns">
-            <f:if condition="{atoz -> f:count()} > 0">
-	            <div class="row atoz">
-		            <div class="large-9 medium-9 small-12 columns">
-		                <f:for as="value" each="{atoz}">
-		                    <f:if condition="{value.active}">
-		                        <f:then>
-		                            <f:if condition="{value.character} == {atozvalue}">
-		                                <f:then>
-		                                    <span class="activelinkcolor">{value.character}</span>
-		                                </f:then>
-		                                <f:else>
-		                                    <f:link.action action="list" arguments="{atoz:value.character}" class="lifelink">
-		                                        {value.character}
-		                                    </f:link.action>
-		                                </f:else>
-		                            </f:if>
-		                        </f:then>
-		                        <f:else>
-		                            <span class="deadlinkcolor">{value.character}</span>
-		                        </f:else>
-		                    </f:if>
-		                </f:for>
-		                <f:if condition="{atozvalue} == ''">
-		                    <f:then>
-		                        <span class="activelinkcolor"><f:translate key="allLetters"/></span>
-		                    </f:then>
-		                    <f:else>
-		                        <f:link.action action="list" class="lifelink">
-		                            <f:translate key="allLetters"/>
-		                        </f:link.action>
-		                    </f:else>
-		                </f:if>
-		            </div>
-		            
-		            <div data-dropdown-menu class="dropdown-menu large-3 medium-3 small-12 columns">
-			            <a href="#" class="button" data-dropdown="drop">
-				            <f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.button"/>
-			            </a>
-			            <ul id="drop" class="large-12 medium-12 small-12 columns dropdown" data-dropdown-content>
-				            <li>
-					            <f:link.page pageUid="91" class="contryLink">
-						            <f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.all"/>
-					            </f:link.page>
-				            </li>
-				            <f:for each="{countryCategories}" as="countryCategory">
-					            <f:if condition="{overrideCategory} == {countryCategory.uid}">
-						            <f:then>
-							            <li class="active">
-								            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
-									            {countryCategory.title}
-								            </f:link.action>
-							            </li>
-						            </f:then>
-						            <f:else>
-							            <li>
-								            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
-									            {countryCategory.title}
-								            </f:link.action>
-							            </li>
-						            </f:else>
-					            </f:if>
-				            </f:for>
-			            </ul>
-		            </div>
-		            
-		            <f:comment><!--
-		            <ul data-dropdown-menu class="dropdown menu large-3 medium-3 small-12 columns">
-			            <li>
-				            <f:link.page pageUid="91" class="contryLink">alle</f:link.page>
-			            </li>
-			            <f:for each="{countryCategories}" as="countryCategory">
-				            <f:if condition="{overrideCategory} == {countryCategory.uid}">
-					            <f:then>
-						            <li class="active">
-							            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
-								            {countryCategory.title}
-							            </f:link.action>
-						            </li>
-					            </f:then>
-					            <f:else>
-						            <li>
-							            <f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}" class="countryLink">
-								            {countryCategory.title}
-							            </f:link.action>
-						            </li>
-					            </f:else>
-				            </f:if>
-			            </f:for>
-		            </ul>
-		            --></f:comment>
-	            </div>
-            </f:if>
-
-            <div class="list large-12 medium-12 small-12 columns">
-                <f:for as="extendTtAddressesItem" each="{pagination.paginator.paginatedItems}" iteration="iterator">
-                    <f:render arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}" partial="Person/ListItemPerson"/>
-                </f:for>
-            </div>
-            <div class="large-12 medium-12 small-12 columns">
-                <f:render arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}" partial="Pagination"/>
-            </div>
-        </div>
-        <!--TYPO3SEARCH_end-->
-    </div>
-</f:section>
+<f:spaceless>
+	<f:layout name="Default"/>
+	
+	This template is responsible for creating a table of domain objects.
+	
+	If you modify this template, do not forget to change the overwrite settings
+	in /Configuration/ExtensionBuilder/settings.yaml:
+		Resources:
+			Private:
+				Templates:
+					ExtendTtAddress:
+						List.html: keep
+	
+	Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+	
+	
+	<f:section name="content">
+		<div class="row missionarsList">
+			<!--TYPO3SEARCH_begin-->
+			<div class="list large-12 medium-12 small-12 columns">
+				<f:if condition="{atoz -> f:count()} > 0">
+					<div class="row atoz">
+						
+						<!-- Partial A-Z -->
+						<f:render arguments="{atoz: atoz, settings:settings}" partial="List/Atoz"/>
+						
+						<!-- Partial Dropdown -->
+						<f:render arguments="{countryCategories: countryCategories, settings:settings}"
+						          partial="List/Dropdown"/>
+					
+					</div>
+				</f:if>
+				
+				<!-- List of Persons -->
+				<div class="list large-12 medium-12 small-12 columns">
+					<f:for as="extendTtAddressesItem" each="{pagination.paginator.paginatedItems}" iteration="iterator">
+						<f:render arguments="{addressItem: extendTtAddressesItem,settings:settings,iterator:iterator}"
+						          partial="Person/ListItemPerson"/>
+					</f:for>
+				</div>
+				
+				<!-- Pagination -->
+				<div class="large-12 medium-12 small-12 columns">
+					<f:render
+							arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}"
+							partial="Pagination"/>
+				</div>
+			</div>
+			<!--TYPO3SEARCH_end-->
+		</div>
+	</f:section>
+</f:spaceless>
 </html>

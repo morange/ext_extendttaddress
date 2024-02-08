@@ -1,38 +1,43 @@
-<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-<div class="item large-6 medium-6 small-12 columns vcard worker boxshadow" itemscope itemtype="https://schema.org/Person">
-
-    <div class="row">
-        <f:link.action action="show"
-                       arguments="{address: address, listPageUid: listPageUid}"
-                       class="large-4 medium-4 small-4 columns addressImage"
-                       pageUid="{settings.singlePid}">
-            <f:render arguments="{addressItem:addressItem}" partial="Person/ImagePerson"/>
-        </f:link.action>
-
-        <div class="large-8 medium-8 small-8 columns">
-            <f:link.action action="show" arguments="{address: address, listPageUid: listPageUid}"
-                           pageUid="{settings.singlePid}">
-                <h5>{addressItem.firstName} {addressItem.middleName} {addressItem.lastName}</h5>
-            </f:link.action>
-            <f:if condition="{addressItem.txBirthday} OR {addressItem.txDeathday}">
-                <p>{addressItem.txBirthday}
-                    <f:if condition="{addressItem.txDeathday}">
-                        <f:then>
-                            - {addressItem.txDeathday}
-                        </f:then>
-                        <f:else>
-                        </f:else>
-                    </f:if>
-                </p>
-            </f:if>
-            <f:if condition="{settings.singlePid}">
-                <f:link.action action="show" arguments="{address: address, listPageUid: listPageUid}"
-                               class="large-12 medium-12 small-12 link biography signafter"
-                               pageUid="{settings.singlePid}">
-                    <f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.label.biografy"/>
-                </f:link.action>
-            </f:if>
-        </div>
-    </div>
-</div>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+	<div class="item large-6 medium-6 small-12 columns vcard worker boxshadow" itemscope
+	     itemtype="https://schema.org/Person">
+		
+		<div class="row">
+			<f:link.action action="show"
+			               arguments="{extendTtAddress : addressItem}"
+			               class="large-4 medium-4 small-4 columns addressImage"
+			               pageUid="{settings.singlePid}">
+				<f:render arguments="{addressItem:addressItem}" partial="Person/ImagePerson"/>
+			</f:link.action>
+			
+			<div class="large-8 medium-8 small-8 columns">
+				<f:link.action action="show" arguments="{extendTtAddress : addressItem}"
+				               pageUid="{settings.singlePid}">
+					<h5>{addressItem.firstName} {addressItem.middleName} {addressItem.lastName}</h5>
+				</f:link.action>
+				<f:if condition="{addressItem.txBirthday} OR {addressItem.txDeathday}">
+					<p>{addressItem.txBirthday}
+						<f:if condition="{addressItem.txDeathday}">
+							<f:then>
+								- {addressItem.txDeathday}
+							</f:then>
+							<f:else>
+							</f:else>
+						</f:if>
+					</p>
+				</f:if>
+				<f:if condition="{settings.singlePid}">
+					<f:link.action action="show" arguments="{extendTtAddress : addressItem}"
+					               class="large-12 medium-12 small-12 link biography signafter"
+					               pageUid="{settings.singlePid}">
+						<f:translate
+								key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.label.biografy"/>
+					</f:link.action>
+				</f:if>
+			</div>
+		
+		</div>
+	</div>
+</f:spaceless>
 </html>

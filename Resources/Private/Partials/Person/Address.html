@@ -1,0 +1,86 @@
+{namespace ttaddr=FriendsOfTYPO3\TtAddress\ViewHelpers}
+
+<f:section name="address">
+	<f:spaceless>
+	<f:if condition="{address.address}">
+		<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<address>
+				<span itemprop="streetAddress">{address.address}</span><br>
+				<span itemprop="postalCode">{address.zip}</span>&nbsp;<span itemprop="addressLocality">{address.city}</span><br>
+				<span itemprop="addressCountry">{address.country}</span>
+			</address>
+		</div>
+	</f:if>
+	</f:spaceless>
+</f:section>
+
+<f:section name="position">
+	<f:spaceless>
+	<f:if condition="{address.position}">
+		<p class="jobTitle" itemprop="jobTitle"><em>{address.position}</em></p>
+	</f:if>
+	</f:spaceless>
+</f:section>
+
+<f:section name="positionDetail">
+	<f:spaceless>
+	<f:if condition="{address.position}">
+		<p class="jobTitle text-center" itemprop="jobTitle"><em>{address.position}</em></p>
+	</f:if>
+	</f:spaceless>
+</f:section>
+
+<f:section name="contact">
+	<f:spaceless>
+	<ul class="list-contactinformation">
+		<f:if condition="{address.phone}">
+			<li class="row">
+				<label class="large-2">
+					<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Extensions/tt_address/Language/locallang.xlf:tt_address.telephone" />:
+				</label>
+				<a class="large-10" href="tel:{address.phone->ttaddr:removeSpaces()}">
+					<span itemprop="telephone">{address.phone}</span>
+				</a>
+			</li>
+		</f:if>
+
+		<f:if condition="{address.email}">
+			<li class="row">
+				<label class="large-2">
+					<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Extensions/tt_address/Language/locallang.xlf:tt_address.email" />:
+				</label>
+				<f:link.email class="large-10" email="{address.email}"><span itemprop="email">{address.email}</span></f:link.email>
+			</li>
+		</f:if>
+
+		<f:if condition="{address.www}">
+			<meta itemprop="url" content="{f:uri.typolink(parameter:address.www)}" />
+			<li class="row">
+				<label class="large-2">
+					<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Extensions/tt_address/Language/locallang.xlf:tt_address.www" />:
+				</label>
+				<f:link.typolink class="large-10" parameter="{address.www}">{address.www}</f:link.typolink>
+			</li>
+		</f:if>
+	</ul>
+	</f:spaceless>
+</f:section>
+
+
+<f:section name="specialdays">
+	<f:spaceless>
+	<f:if condition="{address.position}">
+		{address.position}
+	</f:if>
+
+	<f:if condition="{address.txBirthday}">
+		<meta itemprop="birthDate" content="{address.txBirthday}">
+		{address.txBirthday}
+	</f:if>
+	<f:if condition="{address.txBirthday} && {address.txDeathday}"> -</f:if>
+	<f:if condition="{address.txDeathday}">
+		<meta itemprop="deathDate" content="{address.txDeathday}">
+		{address.txDeathday}
+	</f:if>
+	</f:spaceless>
+</f:section>
