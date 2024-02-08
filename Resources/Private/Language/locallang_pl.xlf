@@ -12,6 +12,15 @@
             <trans-unit id="extend_ttaddress.settings.list.paginate.itemsPerPage" resname="extend_ttaddress.settings.list.paginate.itemsPerPage">
                 <source>Items per Page</source>
             </trans-unit>
+            <trans-unit id="extend_ttaddress.settings.list.paginate.maximumLinks" resname="extend_ttaddress.settings.list.paginate.maximumLinks">
+                <source>max Page Links</source>
+            </trans-unit>
+            <trans-unit id="xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint" resname="xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint">
+                <source>Category Startingpoint</source>
+            </trans-unit>
+            <trans-unit id="extend_ttaddress.flexforms_general.categoriesStartingpoint.description" resname="extend_ttaddress.flexforms_general.categoriesStartingpoint.description">
+                <source>Select a parent category to fill the pull-down with the corresponding category content. To do this, hold the mouse pointer to the left of the checkbox to determine the respective ID of the category.</source>
+            </trans-unit>
             <trans-unit id="extend_ttaddress.flexforms_general.categoryConjunction" resname="extend_ttaddress.flexforms_general.categoryConjunction">
                 <source>Category mode</source>
             </trans-unit>

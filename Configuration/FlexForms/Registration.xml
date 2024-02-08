@@ -41,6 +41,25 @@
                         </TCEforms>
                     </settings.list.paginate.maximumLinks>
 
+
+                    <!-- Category Starting Point -->
+                    <settings.categoryStartingPoint>
+                        <TCEforms>
+                            <label>
+                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint
+                            </label>
+                            <description>
+                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint.description
+                            </description>
+                            <config>
+                                <checkbox>1</checkbox>
+                                <default></default>
+                                <type>input</type>
+                                <size>15</size>
+                            </config>
+                        </TCEforms>
+                    </settings.categoryStartingPoint>
+
                     <!-- Category Mode -->
                     <settings.categoryConjunction>
                         <TCEforms>

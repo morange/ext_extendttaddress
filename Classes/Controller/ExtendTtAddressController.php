@@ -113,12 +113,13 @@ class ExtendTtAddressController extends ActionController
             ];
         }
 
-		$countryParentCategory = $this->categoryRepository->findByUid(36);
+		$categoryStartingPoint = $this->settings['categoryStartingPoint'];
+		$countryParentCategory = $this->categoryRepository->findByUid($categoryStartingPoint);
 		$countryCategories = $this->categoryRepository->getSubCategories([$countryParentCategory]);
 		$countryCategories->detach($countryParentCategory);
+		// DebugUtility::debug($this->settings);
 
-		// DebugUtility::debug($countryCategories);
-        $this->view->assignMultiple([
+		$this->view->assignMultiple([
 			'countryCategories' => $countryCategories,
 			'overrideCategory' => $overrideCategory,
             'atozvalue' => $atozvalue,
@@ -144,7 +145,7 @@ class ExtendTtAddressController extends ActionController
             'extendTtAddress',
             $extendTtAddress
         );
-        return $this->htmlResponse();
+		return $this->htmlResponse();
     }
 
     /**
@@ -159,16 +160,6 @@ class ExtendTtAddressController extends ActionController
             'extendTtAddresses',
             $extendTtAddresses
         );
-        return $this->htmlResponse();
-    }
-
-    /**
-     * action pulldown
-     *
-     * @return ResponseInterface
-     */
-    public function pulldownAction(): ResponseInterface
-    {
         return $this->htmlResponse();
     }
 }
