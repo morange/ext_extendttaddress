@@ -1,0 +1,35 @@
+<html data-namespace-typo3-fluid="true" lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:spaceless>
+<div class="large-10 medium-10 small-12 columns">
+	<f:for as="value" each="{atoz}">
+		<f:if condition="{value.active}">
+			<f:then>
+				<f:if condition="{value.character} == {atozvalue}">
+					<f:then>
+						<span class="activelinkcolor">{value.character}</span>
+					</f:then>
+					<f:else>
+						<f:link.action action="list" arguments="{atoz:value.character}" class="lifelink">
+							{value.character}
+						</f:link.action>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<span class="deadlinkcolor">{value.character}</span>
+			</f:else>
+		</f:if>
+	</f:for>
+	<f:if condition="{atozvalue} == ''">
+		<f:then>
+			<span class="activelinkcolor"><f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.allLetters"/></span>
+		</f:then>
+		<f:else>
+			<f:link.action action="list" class="lifelink">
+				<f:translate key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.allLetters"/>
+			</f:link.action>
+		</f:else>
+	</f:if>
+</div>
+</f:spaceless>
+</html>

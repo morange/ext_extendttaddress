@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:spaceless>
+	<f:if condition="{countryCategories}">
+		<div data-dropdown-menu class="dropdown-menu large-2 medium-2 small-12 columns">
+			<a href="#" class="button" data-dropdown="drop" id="drop-button">
+				<f:translate
+						key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.button"/>
+			</a>
+			<ul id="drop" class="large-12 medium-12 small-12 columns dropdown">
+				<li>
+					<f:link.page pageUid="91" class="contryLink">
+						<f:translate
+								key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.dropdown.all"/>
+					</f:link.page>
+				</li>
+				<f:for each="{countryCategories}" as="countryCategory">
+					<f:if condition="{overrideCategory} == {countryCategory.uid}">
+						<f:then>
+							<li class="active">
+								<f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}"
+								               class="countryLink">
+									{countryCategory.title}
+								</f:link.action>
+							</li>
+						</f:then>
+						<f:else>
+							<li>
+								<f:link.action action="list" arguments="{overrideCategory:countryCategory.uid}"
+								               class="countryLink">
+									{countryCategory.title}
+								</f:link.action>
+							</li>
+						</f:else>
+					</f:if>
+				</f:for>
+			</ul>
+		</div>
+	</f:if>
+</f:spaceless>
+</html>
