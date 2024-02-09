@@ -113,15 +113,18 @@ class ExtendTtAddressController extends ActionController
             ];
         }
 
-		$categoryStartingPoint = $this->settings['categoryStartingPoint'];
-		$countryParentCategory = $this->categoryRepository->findByUid($categoryStartingPoint);
-		$countryCategories = $this->categoryRepository->getSubCategories([$countryParentCategory]);
-		$countryCategories->detach($countryParentCategory);
 		// DebugUtility::debug($this->settings);
+        $countryCategories = null;
+        $categoryStartingPoint = (int)$this->settings['categoryStartingPoint'];
+        if ($categoryStartingPoint > 0) {
+            $countryParentCategory = $this->categoryRepository->findByUid($categoryStartingPoint);
+            $countryCategories = $this->categoryRepository->getSubCategories([$countryParentCategory]);
+            $countryCategories->detach($countryParentCategory);
+        }
 
-		$this->view->assignMultiple([
-			'countryCategories' => $countryCategories,
-			'overrideCategory' => $overrideCategory,
+        $this->view->assignMultiple([
+            'countryCategories' => $countryCategories,
+            'overrideCategory' => $overrideCategory,
             'atozvalue' => $atozvalue,
             'atoz' => $atoz,
             'pagination' => [
