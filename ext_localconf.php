@@ -8,7 +8,9 @@ defined('TYPO3') || die();
 
 (static function () {
     ExtensionUtility::configurePlugin(
+		// Extension Name
         'ExtExtendttaddress',
+		// Plugin Name
         'Extendttaddress',
         [
             ExtendTtAddressController::class => 'list, show, atoz, pulldown'
