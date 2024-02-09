@@ -23,7 +23,7 @@
 					<div class="row atoz">
 						
 						<!-- Partial A-Z -->
-						<f:render arguments="{atoz: atoz, settings:settings}" partial="List/Atoz"/>
+						<f:render arguments="{atoz: atoz, atozvalue: atozvalue, settings:settings}" partial="List/Atoz"/>
 						
 						<!-- Partial Dropdown -->
 						<f:render arguments="{countryCategories: countryCategories, settings:settings}"
@@ -42,9 +42,15 @@
 				
 				<!-- Pagination -->
 				<div class="large-12 medium-12 small-12 columns">
-					<f:render
-							arguments="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}"
-							partial="Pagination"/>
+					<f:if condition="{atozvalue}">
+						<f:then>
+							<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}"/>
+						</f:then>
+						<f:else>
+							<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}"/>
+						</f:else>
+					</f:if>
+					<f:render arguments="{arguments}" partial="Pagination"/>
 				</div>
 			</div>
 			<!--TYPO3SEARCH_end-->
