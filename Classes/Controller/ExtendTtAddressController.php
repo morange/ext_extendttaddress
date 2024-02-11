@@ -150,19 +150,4 @@ class ExtendTtAddressController extends ActionController
         );
 		return $this->htmlResponse();
     }
-
-    /**
-     * action atoz
-     *
-     * @return ResponseInterface
-     */
-    public function atozAction(): ResponseInterface
-    {
-        $extendTtAddresses = $this->extendTtAddressRepository->findByLastName('Ahrens');
-        $this->view->assign(
-            'extendTtAddresses',
-            $extendTtAddresses
-        );
-        return $this->htmlResponse();
-    }
 }
