@@ -17,7 +17,6 @@
 	
 	<f:section name="content">
 		<div class="row missionarsList">
-			<!--TYPO3SEARCH_begin-->
 			<div class="list large-12 medium-12 small-12 columns">
 				<f:if condition="{atoz -> f:count()} > 0">
 					<div class="row atoz">
@@ -26,9 +25,10 @@
 						<f:render arguments="{atoz: atoz, atozvalue: atozvalue, settings:settings}" partial="List/Atoz"/>
 						
 						<!-- Partial Dropdown -->
+						<!--TYPO3SEARCH_begin-->
 						<f:render arguments="{countryCategories: countryCategories, settings:settings}"
 						          partial="List/Dropdown"/>
-					
+						<!--TYPO3SEARCH_end-->
 					</div>
 				</f:if>
 				
@@ -39,20 +39,29 @@
 						          partial="Person/ListItemPerson"/>
 					</f:for>
 				</div>
-				
 				<!-- Pagination -->
+				<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}"/>
+				
 				<f:if condition="{atozvalue}">
-					<f:then>
-						<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}"/>
-					</f:then>
-					<f:else>
-						<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list'}"/>
-					</f:else>
+					<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue}"/>
+					<f:comment><!--
+					<f:if condition="{currentPage}">
+						<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', atoz:atozvalue, currentPage:currentPage}"/>
+					</f:if>
+					--></f:comment>
 				</f:if>
+				<f:if condition="{overrideCategory}">
+					<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', overrideCategory: overrideCategory}"/>
+					<f:comment><!--
+					<f:if condition="{currentPage}">
+						<f:variable name="arguments" value="{pagination: pagination.pagination, paginator: pagination.paginator, actionName: 'list', overrideCategory: overrideCategory, currentPage:currentPage}"/>
+					</f:if>
+					--></f:comment>
+				</f:if>
+
 				<f:render arguments="{arguments}" partial="Pagination"/>
 			
 			</div>
-			<!--TYPO3SEARCH_end-->
 		</div>
 	</f:section>
 </f:spaceless>

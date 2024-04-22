@@ -8,8 +8,8 @@ plugin.tx_extextendttaddress_extendttaddress {
         layoutRootPath = EXT:ext_extendttaddress/Resources/Private/Layouts/
     }
 
-    persistence {
+    ##persistence {
         # cat=plugin.tx_extextendttaddress_extendttaddress//a; type=string; label=Default storage PID
-        storagePid =
-    }
+        ##storagePid =
+    ##}
 }

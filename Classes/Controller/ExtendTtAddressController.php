@@ -105,6 +105,7 @@ class ExtendTtAddressController extends ActionController
         $currentPage = $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1;
         $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $extendTtAddresses, $currentPage, $itemsPerPage);
         $pagination = GeneralUtility::makeInstance(NumberedPagination::class, $paginator, $maximumLinks);
+		// DebugUtility::debug($extendTtAddresses);
 
         $atoz = [];
         foreach (range("A", "Z") as $char) {

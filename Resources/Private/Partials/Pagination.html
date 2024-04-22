@@ -5,15 +5,24 @@
 			<f:then>
 				<f:comment>
 					<li class="first">
-						<a href="{f:uri.action(action:actionName, arguments:{currentPage: 1})}" title="{f:translate(key:'pagination.first')}">
+						<a href="{f:uri.action(action:actionName, arguments:{currentPage: 1, atoz: atoz, overrideCategory: overrideCategory})}" title="{f:translate(key:'pagination.first')}">
 							<i class="material-icons"><f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.firstpage"/></i>
 						</a>
 					</li>
 				</f:comment>
 				<li class="previous">
-					<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.previousPageNumber})}" title="{f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}">
-						<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.previouspage"/>
-					</a>
+					<f:if condition="{pagination.previousPageNumber} == 1">
+						<f:then>
+							<a href="{f:uri.action(action:actionName, arguments:{atoz: atoz, overrideCategory: overrideCategory})}" title="{f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}">
+								<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.previouspage"/>
+							</a>
+						</f:then>
+						<f:else>
+							<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.previousPageNumber, atoz: atoz, overrideCategory: overrideCategory})}" title="{f:translate(key:'widget.pagination.previous', extensionName: 'fluid')}">
+								<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.previouspage"/>
+							</a>
+						</f:else>
+					</f:if>
 				</li>
 			</f:then>
 			<f:else>
@@ -25,20 +34,27 @@
 		</f:if>
 		<f:for each="{pagination.allPageNumbers}" as="page">
 			<li class="{f:if(condition: '{page} == {paginator.currentPageNumber}', then:'current')}">
-				<a href="{f:uri.action(action:actionName, arguments:{currentPage: page})}">{page}</a>
+				<f:if condition="{page} == 1">
+					<f:then>
+						<a href="{f:uri.action(action:actionName, arguments:{atoz: atoz, overrideCategory: overrideCategory})}">{page}</a>
+					</f:then>
+					<f:else>
+						<a href="{f:uri.action(action:actionName, arguments:{currentPage: page, atoz: atoz, overrideCategory: overrideCategory})}">{page}</a>
+					</f:else>
+				</f:if>
 			</li>
 		</f:for>
 		
 		<f:if condition="{pagination.nextPageNumber} && {pagination.nextPageNumber} <= {pagination.lastPageNumber}">
 			<f:then>
 				<li class="next">
-					<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.nextPageNumber})}" title="{f:translate(key:'widget.pagination.next', extensionName: 'fluid')}">
+					<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.nextPageNumber, atoz: atoz, overrideCategory: overrideCategory})}" title="{f:translate(key:'widget.pagination.next', extensionName: 'fluid')}">
 						<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.nextpage"/>
 					</a>
 				</li>
 				<f:comment>
 					<li class="last">
-						<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.lastPageNumber})}" title="{f:translate(key:'pagination.last')}">
+						<a href="{f:uri.action(action:actionName, arguments:{currentPage: pagination.lastPageNumber, atoz: atoz, overrideCategory: overrideCategory})}" title="{f:translate(key:'pagination.last')}">
 							<f:translate key="LLL:EXT:mhtemplatelmw/Resources/Private/Site/Language/locallang.xlf:label.lastpage"/>
 						</a>
 					</li>
