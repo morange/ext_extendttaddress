@@ -27,14 +27,14 @@
 						</f:if>
 					</p>
 				</f:if>
-				<f:if condition="{settings.singlePid}">
-					<f:link.action action="show" arguments="{extendTtAddress : addressItem}"
-					               class="large-12 medium-12 small-12 link biography signafter"
-					               pageUid="{settings.singlePid}">
-						<f:translate
-								key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.label.biografy"/>
-					</f:link.action>
-				</f:if>
+				
+				<f:link.action action="show" arguments="{extendTtAddress : addressItem}"
+				               class="large-12 medium-12 small-12 link biography signafter"
+				               pageUid="{settings.singlePid}">
+					<f:translate
+							key="LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang.xlf:tx_extextendttaddress_domain_model_extendttaddress.label.biografy"/>
+				</f:link.action>
+			
 			</div>
 		
 		</div>

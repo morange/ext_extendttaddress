@@ -1,3 +1,4 @@
+/*
 plugin.tx_extextendttaddress_extendttaddress {
     view {
         templateRootPaths {
@@ -69,3 +70,4 @@ plugin.tx_extextendttaddress._CSS_DEFAULT_STYLE (
         color: green;
     }
 )
+*/
