@@ -9,6 +9,7 @@
     }
   ],
   "license": "GPL-2.0-or-later",
+  "version": "1.0.0",
   "require": {
     "typo3/cms-core": "^11.5"
   },
