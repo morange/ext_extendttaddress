@@ -14,4 +14,4 @@
         conf.tt_address.htmlSpecialChars = 1
         wrap = <li>|</li>
     }
-[global]
+[END]
