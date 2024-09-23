@@ -11,7 +11,6 @@ ExtensionUtility::registerPlugin(
     'Extend TtAddress'
 );
 
-
 // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
 $pluginSignature = 'extextendttaddress_extendttaddress';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
@@ -22,7 +21,7 @@ ExtensionManagementUtility::addPiFlexFormValue(
 );
 
 ExtensionManagementUtility::addPiFlexFormValue(
-// 'list_type' does not apply here
+    // 'list_type' does not apply here
     '*',
     // FlexForm configuration schema file
     'FILE:EXT:ext_extendttaddress/Configuration/FlexForms/Registration.xml',

@@ -11,5 +11,5 @@ return [
     ],
     ExtendTtAddress::class => [
         'tableName' => 'tt_address',
-    ]
+    ],
 ];

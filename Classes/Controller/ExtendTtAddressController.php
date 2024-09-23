@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 // das ist der full qualified classname (FQCM)
-namespace DerMatthesFrauHofer\ExtExtendttaddress\Controller;
 
+namespace DerMatthesFrauHofer\ExtExtendttaddress\Controller;
 
 use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress;
 use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository\CategoryRepository;
@@ -18,6 +18,7 @@ use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 // use TYPO3\CMS\Core\Utility\DebugUtility;
 
 /**
@@ -35,10 +36,9 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class ExtendTtAddressController extends ActionController
 {
     public function __construct(
-		private readonly ExtendTtAddressRepository $extendTtAddressRepository,
-		private readonly CategoryRepository        $categoryRepository
-    )
-    {}
+        private readonly ExtendTtAddressRepository $extendTtAddressRepository,
+        private readonly CategoryRepository $categoryRepository
+    ) {}
 
     /**
      * action list
@@ -50,16 +50,15 @@ class ExtendTtAddressController extends ActionController
     public function listAction(): ResponseInterface
     {
         $atozvalue = ($this->request->hasArgument('atoz')) ? $this->request->getArgument('atoz') : '';
-		$overrideCategory = (int)(($this->request->hasArgument('overrideCategory')) ? $this->request->getArgument('overrideCategory') : 0);
+        $overrideCategory = (int)(($this->request->hasArgument('overrideCategory')) ? $this->request->getArgument('overrideCategory') : 0);
 
-		if($overrideCategory !== 0) {
-			$categories = GeneralUtility::makeInstance(ObjectStorage::class);
-			$categoryObject = $this->categoryRepository->findByUid($overrideCategory);
-			$categories->attach($categoryObject);
-			$extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, 'and', null, $atozvalue);
-			$firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, 'and', null, $atozvalue);
-		}
-        else if ($this->settings['categories'] !== '') {
+        if ($overrideCategory !== 0) {
+            $categories = GeneralUtility::makeInstance(ObjectStorage::class);
+            $categoryObject = $this->categoryRepository->findByUid($overrideCategory);
+            $categories->attach($categoryObject);
+            $extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, 'and', null, $atozvalue);
+            $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, 'and', null, $atozvalue);
+        } elseif ($this->settings['categories'] !== '') {
             $categoryUids = GeneralUtility::intExplode(',', $this->settings['categories']);
             $categoryConjunction = (string)$this->settings['categoryConjunction'];
             $includeSubCategories = (bool)$this->settings['includeSubCategories'];
@@ -88,17 +87,17 @@ class ExtendTtAddressController extends ActionController
         $currentPage = $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1;
         $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $extendTtAddresses, $currentPage, $itemsPerPage);
         $pagination = GeneralUtility::makeInstance(NumberedPagination::class, $paginator, $maximumLinks);
-		// DebugUtility::debug($extendTtAddresses);
+        // DebugUtility::debug($extendTtAddresses);
 
         $atoz = [];
-        foreach (range("A", "Z") as $char) {
+        foreach (range('A', 'Z') as $char) {
             $atoz[] = [
-                "character" => $char,
-                "active" => (in_array($char, $firstLettersOfLastName, true))
+                'character' => $char,
+                'active' => (in_array($char, $firstLettersOfLastName, true)),
             ];
         }
 
-		// DebugUtility::debug($this->settings);
+        // DebugUtility::debug($this->settings);
         $countryCategories = null;
         $categoryStartingPoint = (int)$this->settings['categoryStartingPoint'];
         if ($categoryStartingPoint > 0) {
@@ -115,7 +114,7 @@ class ExtendTtAddressController extends ActionController
             'pagination' => [
                 'paginator' => $paginator,
                 'pagination' => $pagination,
-            ]
+            ],
         ]);
 
         return $this->htmlResponse();
@@ -133,6 +132,6 @@ class ExtendTtAddressController extends ActionController
             'extendTtAddress',
             $extendTtAddress
         );
-		return $this->htmlResponse();
+        return $this->htmlResponse();
     }
 }

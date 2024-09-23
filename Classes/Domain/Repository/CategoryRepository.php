@@ -19,7 +19,6 @@ namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository;
 
 use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\Category;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\Repository;

@@ -48,7 +48,7 @@ class ExtendTtAddressControllerTest extends UnitTestCase
             ->onlyMethods(['findAll'])
             ->disableOriginalConstructor()
             ->getMock();
-        $extendTtAddressRepository->expects(self::once())->method('findAll')->will(self::returnValue($allExtendTtAddresses));
+        $extendTtAddressRepository->expects(self::once())->method('findAll')->willReturn($allExtendTtAddresses);
         $this->subject->_set('extendTtAddressRepository', $extendTtAddressRepository);
 
         $view = $this->getMockBuilder(ViewInterface::class)->getMock();

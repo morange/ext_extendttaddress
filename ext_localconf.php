@@ -8,16 +8,16 @@ defined('TYPO3') || die();
 
 (static function () {
     ExtensionUtility::configurePlugin(
-		// Extension Name
+        // Extension Name
         'ExtExtendttaddress',
-		// Plugin Name
+        // Plugin Name
         'Extendttaddress',
         [
-            ExtendTtAddressController::class => 'list, show, atoz, pulldown'
+            ExtendTtAddressController::class => 'list, show, atoz, pulldown',
         ],
         // non-cacheable actions
         [
-            ExtendTtAddressController::class => ''
+            ExtendTtAddressController::class => '',
         ]
     );
 

@@ -11,6 +11,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
+
 // use TYPO3\CMS\Core\Utility\DebugUtility;
 
 /**
@@ -36,7 +37,7 @@ class ExtendTtAddressRepository extends Repository
      * @method QueryResultInterface findByLastName(string $last_name)
      */
     protected $defaultOrderings = [
-        'last_name' => QueryInterface::ORDER_ASCENDING
+        'last_name' => QueryInterface::ORDER_ASCENDING,
     ];
 
     /**
@@ -50,7 +51,7 @@ class ExtendTtAddressRepository extends Repository
 
         // If "ignore category selection" is used, nothing needs to be done
         if (empty($conjunction)) {
-			return $this->findAll($atozvalue);
+            return $this->findAll($atozvalue);
         }
 
         foreach ($categories as $category) {
@@ -92,7 +93,7 @@ class ExtendTtAddressRepository extends Repository
         }
 
         if ($atozvalue !== '') {
-			// DebugUtility::debug($atozvalue);
+            // DebugUtility::debug($atozvalue);
             $constraints[] = $query->like('lastName', $atozvalue . '%');
         }
 
@@ -158,5 +159,3 @@ class ExtendTtAddressRepository extends Repository
         return $chars;
     }
 }
-
-

@@ -44,7 +44,7 @@ $tmp_ext_extendttaddress_columns = [
             'type' => 'input',
             'size' => 30,
             'eval' => 'trim',
-            'default' => null
+            'default' => null,
         ],
     ],
     'tx_deathday' => [
@@ -55,7 +55,7 @@ $tmp_ext_extendttaddress_columns = [
             'type' => 'input',
             'size' => 30,
             'eval' => 'trim',
-            'default' => null
+            'default' => null,
         ],
     ],
 
@@ -96,5 +96,5 @@ ExtensionManagementUtility::addToAllTCAtypes(
 
 // Add the new palette:
 $GLOBALS['TCA']['tt_address']['palettes']['name'] = [
-    'showitem' => 'gender, title, title_suffix,--linebreak--, first_name, middle_name, last_name,--linebreak--,name, tx_birthday, tx_deathday, --linebreak--,slug'
+    'showitem' => 'gender, title, title_suffix,--linebreak--, first_name, middle_name, last_name,--linebreak--,name, tx_birthday, tx_deathday, --linebreak--,slug',
 ];

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model;
 
-
 use FriendsOfTYPO3\TtAddress\Domain\Model\Address;
 
 /**
@@ -21,7 +20,6 @@ use FriendsOfTYPO3\TtAddress\Domain\Model\Address;
  */
 class ExtendTtAddress extends Address
 {
-
     /**
      * txBirthday
      *
@@ -50,7 +48,6 @@ class ExtendTtAddress extends Address
      * Sets the txBirthday
      *
      * @param ?string $txBirthday
-     * @return void
      */
     public function settxBirthday(?string $txBirthday): void
     {
@@ -71,7 +68,6 @@ class ExtendTtAddress extends Address
      * Sets the txDeathday
      *
      * @param ?string $txDeathday
-     * @return void
      */
     public function setTxDeathday(?string $txDeathday): void
     {
