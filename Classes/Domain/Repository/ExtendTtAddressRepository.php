@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Domain\Repository;
 
 use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\Category;
-use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
@@ -55,7 +54,7 @@ class ExtendTtAddressRepository extends Repository
         }
 
         foreach ($categories as $category) {
-            if ($subCategories instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
+            if ($subCategories instanceof ObjectStorage) {
                 $subCategoryConstraint = [];
                 $subCategoryConstraint[] = $query->contains('categories', $category);
                 if (count($subCategories) > 0) {
@@ -74,20 +73,12 @@ class ExtendTtAddressRepository extends Repository
         }
 
         if ($categoryConstraints !== []) {
-            switch (strtolower($conjunction)) {
-                case 'or':
-                    $constraints[] = $query->logicalOr(...$categoryConstraints);
-                    break;
-                case 'notor':
-                    $constraints[] = $query->logicalNot($query->logicalOr(...$categoryConstraints));
-                    break;
-                case 'notand':
-                    $constraints[] = $query->logicalNot($query->logicalAnd(...$categoryConstraints));
-                    break;
-                case 'and':
-                default:
-                    $constraints[] = $query->logicalAnd(...$categoryConstraints);
-            }
+            $constraints[] = match (strtolower($conjunction)) {
+                'or' => $query->logicalOr(...$categoryConstraints),
+                'notor' => $query->logicalNot($query->logicalOr(...$categoryConstraints)),
+                'notand' => $query->logicalNot($query->logicalAnd(...$categoryConstraints)),
+                default => $query->logicalAnd(...$categoryConstraints),
+            };
         }
 
         if ($atozvalue !== '') {
@@ -148,7 +139,7 @@ class ExtendTtAddressRepository extends Repository
     {
         $chars = [];
         foreach ($results as $result) {
-            $chars[] = strtoupper(substr($result->getLastName(), 0, 1));
+            $chars[] = strtoupper(substr((string) $result->getLastName(), 0, 1));
         }
         return $chars;
     }

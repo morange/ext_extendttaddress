@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Tests\Unit\Domain\Model;
 
+use DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress;
 use PHPUnit\Framework\MockObject\MockObject;
 use TYPO3\TestingFramework\Core\AccessibleObjectInterface;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
@@ -16,7 +17,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 class ExtendTtAddressTest extends UnitTestCase
 {
     /**
-     * @var \DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress|MockObject|AccessibleObjectInterface
+     * @var ExtendTtAddress|MockObject|AccessibleObjectInterface
      */
     protected $subject;
 
@@ -25,7 +26,7 @@ class ExtendTtAddressTest extends UnitTestCase
         parent::setUp();
 
         $this->subject = $this->getAccessibleMock(
-            \DerMatthesFrauHofer\ExtExtendttaddress\Domain\Model\ExtendTtAddress::class,
+            ExtendTtAddress::class,
             ['dummy']
         );
     }
