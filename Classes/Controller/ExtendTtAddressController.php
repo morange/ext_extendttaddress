@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+// das ist der full qualified classname (FQCM)
 namespace DerMatthesFrauHofer\ExtExtendttaddress\Controller;
 
 
@@ -33,29 +34,11 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class ExtendTtAddressController extends ActionController
 {
-
-    /**
-     * extendTtAddressRepository
-     *
-     * @var ExtendTtAddressRepository
-     */
-    protected ExtendTtAddressRepository $extendTtAddressRepository;
-
-    /**
-     * categoryRepository
-     *
-     * @var CategoryRepository
-     */
-    protected CategoryRepository $categoryRepository;
-
     public function __construct(
-        ExtendTtAddressRepository $extendTtAddressRepository,
-        CategoryRepository        $categoryRepository
+		private readonly ExtendTtAddressRepository $extendTtAddressRepository,
+		private readonly CategoryRepository        $categoryRepository
     )
-    {
-        $this->extendTtAddressRepository = $extendTtAddressRepository;
-        $this->categoryRepository = $categoryRepository;
-    }
+    {}
 
     /**
      * action list
@@ -99,8 +82,8 @@ class ExtendTtAddressController extends ActionController
             $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastName();
         }
 
-        $itemsPerPage = $this->settings['list']['paginate']['itemsPerPage'];
-        $maximumLinks = $this->settings['list']['paginate']['maximumLinks'];
+        $itemsPerPage = (int)$this->settings['list']['paginate']['itemsPerPage'];
+        $maximumLinks = (int)$this->settings['list']['paginate']['maximumLinks'];
 
         $currentPage = $this->request->hasArgument('currentPage') ? (int)$this->request->getArgument('currentPage') : 1;
         $paginator = GeneralUtility::makeInstance(QueryResultPaginator::class, $extendTtAddresses, $currentPage, $itemsPerPage);

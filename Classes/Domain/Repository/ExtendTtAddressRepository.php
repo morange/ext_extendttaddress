@@ -63,7 +63,7 @@ class ExtendTtAddressRepository extends Repository
                     }
                 }
                 if ($subCategoryConstraint) {
-                    $categoryConstraints[] = $query->logicalOr($subCategoryConstraint);
+                    $categoryConstraints[] = $query->logicalOr(...$subCategoryConstraint);
                 }
             } else {
                 $categoryConstraints[] = $query->contains('categories', $category);
@@ -77,17 +77,17 @@ class ExtendTtAddressRepository extends Repository
         if ($categoryConstraints) {
             switch (strtolower($conjunction)) {
                 case 'or':
-                    $constraints[] = $query->logicalOr($categoryConstraints);
+                    $constraints[] = $query->logicalOr(...$categoryConstraints);
                     break;
                 case 'notor':
-                    $constraints[] = $query->logicalNot($query->logicalOr($categoryConstraints));
+                    $constraints[] = $query->logicalNot($query->logicalOr(...$categoryConstraints));
                     break;
                 case 'notand':
-                    $constraints[] = $query->logicalNot($query->logicalAnd($categoryConstraints));
+                    $constraints[] = $query->logicalNot($query->logicalAnd(...$categoryConstraints));
                     break;
                 case 'and':
                 default:
-                    $constraints[] = $query->logicalAnd($categoryConstraints);
+                    $constraints[] = $query->logicalAnd(...$categoryConstraints);
             }
         }
 
@@ -98,7 +98,7 @@ class ExtendTtAddressRepository extends Repository
 
         if ($constraints !== null) {
             $query->matching(
-                $query->logicalAnd($constraints)
+                $query->logicalAnd(...$constraints)
             );
         }
 
