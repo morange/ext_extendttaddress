@@ -22,22 +22,16 @@ class ExtendTtAddress extends Address
 {
     /**
      * txBirthday
-     *
-     * @var ?string
      */
     protected ?string $txBirthday = null;
 
     /**
      * txDeathday
-     *
-     * @var ?string
      */
     protected ?string $txDeathday = null;
 
     /**
      * Returns the txBirthday
-     *
-     * @return ?string
      */
     public function gettxBirthday(): ?string
     {
@@ -46,8 +40,6 @@ class ExtendTtAddress extends Address
 
     /**
      * Sets the txBirthday
-     *
-     * @param ?string $txBirthday
      */
     public function settxBirthday(?string $txBirthday): void
     {
@@ -56,8 +48,6 @@ class ExtendTtAddress extends Address
 
     /**
      * Returns the txDeathday
-     *
-     * @return ?string
      */
     public function getTxDeathday(): ?string
     {
@@ -66,8 +56,6 @@ class ExtendTtAddress extends Address
 
     /**
      * Sets the txDeathday
-     *
-     * @param ?string $txDeathday
      */
     public function setTxDeathday(?string $txDeathday): void
     {

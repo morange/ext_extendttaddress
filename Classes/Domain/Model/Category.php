@@ -25,14 +25,10 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 class Category extends AbstractEntity
 {
     /**
-     * @var string
      * @Extbase\Validate("NotEmpty")
      */
     protected string $title = '';
 
-    /**
-     * @var string
-     */
     protected string $description = '';
 
     /**

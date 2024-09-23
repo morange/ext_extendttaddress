@@ -50,12 +50,12 @@ class ExtendTtAddressRepository extends Repository
         $categoryConstraints = [];
 
         // If "ignore category selection" is used, nothing needs to be done
-        if (empty($conjunction)) {
+        if ($conjunction === '' || $conjunction === '0') {
             return $this->findAll($atozvalue);
         }
 
         foreach ($categories as $category) {
-            if ($subCategories !== null) {
+            if ($subCategories instanceof \TYPO3\CMS\Extbase\Persistence\ObjectStorage) {
                 $subCategoryConstraint = [];
                 $subCategoryConstraint[] = $query->contains('categories', $category);
                 if (count($subCategories) > 0) {
@@ -63,9 +63,7 @@ class ExtendTtAddressRepository extends Repository
                         $subCategoryConstraint[] = $query->contains('categories', $subCategory);
                     }
                 }
-                if ($subCategoryConstraint) {
-                    $categoryConstraints[] = $query->logicalOr(...$subCategoryConstraint);
-                }
+                $categoryConstraints[] = $query->logicalOr(...$subCategoryConstraint);
             } else {
                 $categoryConstraints[] = $query->contains('categories', $category);
             }
@@ -75,7 +73,7 @@ class ExtendTtAddressRepository extends Repository
             $categoryConstraints[] = $query->contains('categories', $category);
         }
 
-        if ($categoryConstraints) {
+        if ($categoryConstraints !== []) {
             switch (strtolower($conjunction)) {
                 case 'or':
                     $constraints[] = $query->logicalOr(...$categoryConstraints);
@@ -107,7 +105,6 @@ class ExtendTtAddressRepository extends Repository
     }
 
     /**
-     * @param string $atozvalue
      * @return array|object[]|QueryResultInterface
      * @throws InvalidQueryException
      */
@@ -135,7 +132,6 @@ class ExtendTtAddressRepository extends Repository
     }
 
     /**
-     * @return array
      * @throws InvalidQueryException
      */
     public function getFirstLettersOfLastName(): array
@@ -147,12 +143,10 @@ class ExtendTtAddressRepository extends Repository
 
     /**
      * @param $results
-     * @return array
      */
     protected function getFirstLettersFromResults($results): array
     {
         $chars = [];
-        /** @var ExtendTtAddress $extendTtAddress */
         foreach ($results as $result) {
             $chars[] = strtoupper(substr($result->getLastName(), 0, 1));
         }

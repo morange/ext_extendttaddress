@@ -1,19 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <T3DataStructure>
     <sheets>
         <sDEF>
             <ROOT>
-                <TCEforms>
-                    <sheetTitle>
-                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:flexforms_tab.settings
-                    </sheetTitle>
-                </TCEforms>
+                <sheetTitle>
+                    LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:flexforms_tab.settings
+                </sheetTitle>
                 <type>array</type>
                 <el>
-
                     <!-- Items per Page -->
-                    <settings.list.paginate.itemsPerPage>
-                        <TCEforms>
+                        <settings.list.paginate.itemsPerPage>
                             <label>
                                 LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.settings.list.paginate.itemsPerPage
                             </label>
@@ -23,156 +19,132 @@
                                 <type>input</type>
                                 <size>15</size>
                             </config>
-                        </TCEforms>
-                    </settings.list.paginate.itemsPerPage>
-
-                    <!-- Maximum Links -->
-                    <settings.list.paginate.maximumLinks>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.settings.list.paginate.maximumLinks
-                            </label>
-                            <config>
-                                <checkbox>1</checkbox>
-                                <default>15</default>
-                                <type>input</type>
-                                <size>15</size>
-                            </config>
-                        </TCEforms>
-                    </settings.list.paginate.maximumLinks>
-
-
-                    <!-- Category Starting Point -->
-                    <settings.categoryStartingPoint>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint
-                            </label>
-                            <description>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint.description
-                            </description>
-                            <config>
-                                <checkbox>1</checkbox>
-                                <default></default>
-                                <type>input</type>
-                                <size>15</size>
-                            </config>
-                        </TCEforms>
-                    </settings.categoryStartingPoint>
-
-                    <!-- Category Mode -->
-                    <settings.categoryConjunction>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction
-                            </label>
-                            <config>
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items>
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">
-                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.all
-                                        </numIndex>
-                                        <numIndex index="1"></numIndex>
-                                    </numIndex>
-                                    <numIndex index="1">
-                                        <numIndex index="0">
-                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.or
-                                        </numIndex>
-                                        <numIndex index="1">or</numIndex>
-                                    </numIndex>
-                                    <numIndex index="2">
-                                        <numIndex index="0">
-                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.and
-                                        </numIndex>
-                                        <numIndex index="1">and</numIndex>
-                                    </numIndex>
-                                    <numIndex index="3">
-                                        <numIndex index="0">
-                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.notor
-                                        </numIndex>
-                                        <numIndex index="1">notor</numIndex>
-                                    </numIndex>
-                                    <numIndex index="4">
-                                        <numIndex index="0">
-                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.notand
-                                        </numIndex>
-                                        <numIndex index="1">notand</numIndex>
-                                    </numIndex>
-                                </items>
-                            </config>
-                        </TCEforms>
-                    </settings.categoryConjunction>
-
-
-                    <!-- Category -->
-                    <settings.categories>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categories
-                            </label>
-                            <config>
-                                <type>select</type>
-                                <renderMode>tree</renderMode>
-                                <renderType>selectTree</renderType>
-                                <treeConfig>
-                                    <!-- <dataProvider>GeorgRinger\News\TreeProvider\DatabaseTreeDataProvider</dataProvider> -->
-                                    <parentField>parent</parentField>
-                                    <appearance>
-                                        <maxLevels>99</maxLevels>
-                                        <expandAll>TRUE</expandAll>
-                                        <showHeader>TRUE</showHeader>
-                                    </appearance>
-                                </treeConfig>
-                                <foreign_table>sys_category</foreign_table>
-                                <foreign_table_where>AND (sys_category.sys_language_uid = 0 OR sys_category.l10n_parent
-                                    = 0) ORDER BY sys_category.sorting
-                                </foreign_table_where>
-                                <size>15</size>
-                                <minitems>0</minitems>
-                                <maxitems>99</maxitems>
-                            </config>
-                        </TCEforms>
-                    </settings.categories>
-
-                    <!-- Include sub categories -->
-                    <settings.includeSubCategories>
-                        <TCEforms>
-                            <label>
-                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.includeSubCategories
-                            </label>
-                            <config>
-                                <type>check</type>
-                            </config>
-                        </TCEforms>
-                    </settings.includeSubCategories>
-
-                    <!-- -->
-                    <settings.singlePid>
-                        <TCEforms>
-                            <exclude>1</exclude>
-                            <label>LLL:EXT:tt_address/Resources/Private/Language/ff/locallang_ff.xlf:pi1_flexform.singlePid</label>
-                            <config>
-                                <type>group</type>
-                                <internal_type>db</internal_type>
-                                <allowed>pages</allowed>
-                                <size>1</size>
-                                <maxitems>1</maxitems>
-                                <minitems>0</minitems>
-                                <wizards>
-                                    <suggest>
-                                        <type>suggest</type>
-                                    </suggest>
-                                </wizards>
-                            </config>
-                        </TCEforms>
-                    </settings.singlePid>
-
-                    <!-- end of settings -->
-
-                </el>
-            </ROOT>
-        </sDEF>
-    </sheets>
-</T3DataStructure>
+                        </settings.list.paginate.itemsPerPage>
+                        <!-- Maximum Links -->
+                            <settings.list.paginate.maximumLinks>
+                                <label>
+                                    LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.settings.list.paginate.maximumLinks
+                                </label>
+                                <config>
+                                    <checkbox>1</checkbox>
+                                    <default>15</default>
+                                    <type>input</type>
+                                    <size>15</size>
+                                </config>
+                            </settings.list.paginate.maximumLinks>
+                            <!-- Category Starting Point -->
+                                <settings.categoryStartingPoint>
+                                    <label>
+                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint
+                                    </label>
+                                    <description>
+                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoriesStartingpoint.description
+                                    </description>
+                                    <config>
+                                        <checkbox>1</checkbox>
+                                        <default/>
+                                        <type>input</type>
+                                        <size>15</size>
+                                    </config>
+                                </settings.categoryStartingPoint>
+                                <!-- Category Mode -->
+                                    <settings.categoryConjunction>
+                                        <label>
+                                            LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction
+                                        </label>
+                                        <config>
+                                            <type>select</type>
+                                            <renderType>selectSingle</renderType>
+                                            <items>
+                                                <numIndex index="0" type="array">
+                                                    <numIndex index="0">
+                                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.all
+                                                    </numIndex>
+                                                    <numIndex index="1"/>
+                                                </numIndex>
+                                                <numIndex index="1">
+                                                    <numIndex index="0">
+                                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.or
+                                                    </numIndex>
+                                                    <numIndex index="1">or</numIndex>
+                                                </numIndex>
+                                                <numIndex index="2">
+                                                    <numIndex index="0">
+                                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.and
+                                                    </numIndex>
+                                                    <numIndex index="1">and</numIndex>
+                                                </numIndex>
+                                                <numIndex index="3">
+                                                    <numIndex index="0">
+                                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.notor
+                                                    </numIndex>
+                                                    <numIndex index="1">notor</numIndex>
+                                                </numIndex>
+                                                <numIndex index="4">
+                                                    <numIndex index="0">
+                                                        LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categoryConjunction.notand
+                                                    </numIndex>
+                                                    <numIndex index="1">notand</numIndex>
+                                                </numIndex>
+                                            </items>
+                                        </config>
+                                    </settings.categoryConjunction>
+                                    <!-- Category -->
+                                        <settings.categories>
+                                            <label>
+                                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.categories
+                                            </label>
+                                            <config>
+                                                <type>select</type>
+                                                <renderMode>tree</renderMode>
+                                                <renderType>selectTree</renderType>
+                                                <treeConfig>
+                                                    <!-- <dataProvider>GeorgRinger\News\TreeProvider\DatabaseTreeDataProvider</dataProvider> -->
+                                                    <parentField>parent</parentField>
+                                                    <appearance>
+                                                        <maxLevels>99</maxLevels>
+                                                        <expandAll>TRUE</expandAll>
+                                                        <showHeader>TRUE</showHeader>
+                                                    </appearance>
+                                                </treeConfig>
+                                                <foreign_table>sys_category</foreign_table>
+                                                <foreign_table_where>AND (sys_category.sys_language_uid = 0 OR sys_category.l10n_parent
+                                                = 0) ORDER BY sys_category.sorting
+                                            </foreign_table_where>
+                                            <size>15</size>
+                                            <minitems>0</minitems>
+                                            <maxitems>99</maxitems>
+                                        </config>
+                                    </settings.categories>
+                                    <!-- Include sub categories -->
+                                        <settings.includeSubCategories>
+                                            <label>
+                                                LLL:EXT:ext_extendttaddress/Resources/Private/Language/locallang_pl.xlf:extend_ttaddress.flexforms_general.includeSubCategories
+                                            </label>
+                                            <config>
+                                                <type>check</type>
+                                            </config>
+                                        </settings.includeSubCategories>
+                                        <!-- -->
+                                            <settings.singlePid>
+                                                <exclude>1</exclude>
+                                                <label>LLL:EXT:tt_address/Resources/Private/Language/ff/locallang_ff.xlf:pi1_flexform.singlePid</label>
+                                                <config>
+                                                    <type>group</type>
+                                                    <allowed>pages</allowed>
+                                                    <size>1</size>
+                                                    <maxitems>1</maxitems>
+                                                    <minitems>0</minitems>
+                                                    <wizards>
+                                                        <suggest>
+                                                            <type>suggest</type>
+                                                        </suggest>
+                                                    </wizards>
+                                                </config>
+                                            </settings.singlePid>
+                                            <!-- end of settings -->
+                                            </el>
+                                        </ROOT>
+                                    </sDEF>
+                                </sheets>
+                            </T3DataStructure>

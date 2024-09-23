@@ -39,7 +39,6 @@ class CategoryRepository extends Repository
     /**
      * @param $categories
      * @param $return
-     * @return ObjectStorage
      */
     public function getSubCategories($categories, $return = null): ObjectStorage
     {

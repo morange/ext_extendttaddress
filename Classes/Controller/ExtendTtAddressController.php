@@ -43,7 +43,6 @@ class ExtendTtAddressController extends ActionController
     /**
      * action list
      *
-     * @return ResponseInterface
      * @throws InvalidQueryException
      * @throws NoSuchArgumentException
      */
@@ -57,7 +56,7 @@ class ExtendTtAddressController extends ActionController
             $categoryObject = $this->categoryRepository->findByUid($overrideCategory);
             $categories->attach($categoryObject);
             $extendTtAddresses = $this->extendTtAddressRepository->findByCategories($categories, 'and', null, $atozvalue);
-            $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, 'and', null, $atozvalue);
+            $firstLettersOfLastName = $this->extendTtAddressRepository->getFirstLettersOfLastNameByCategory($categories, 'and', null);
         } elseif ($this->settings['categories'] !== '') {
             $categoryUids = GeneralUtility::intExplode(',', $this->settings['categories']);
             $categoryConjunction = (string)$this->settings['categoryConjunction'];
@@ -122,9 +121,6 @@ class ExtendTtAddressController extends ActionController
 
     /**
      * action show
-     *
-     * @param ExtendTtAddress $extendTtAddress
-     * @return ResponseInterface
      */
     public function showAction(ExtendTtAddress $extendTtAddress): ResponseInterface
     {
